@@ -40,10 +40,6 @@ export default class App extends Component {
 			response = await parse.text();
 			response = JSON.parse(response);
 
-			// must convert all celsius recordings to farenheit if user specifies
-
-
-
 			this.setState({
 				data: response
 			});
@@ -53,17 +49,18 @@ export default class App extends Component {
 	};
 
 	render() {
-		const { location } = this.state;
-
+		const { data, location } = this.state;
+		const { currently } = data;
 		const formProps = {
 			location,
 			updateGoogleLocationData: this.updateGoogleLocationData,
 			updateLocation: this.updateLocation
 		};
 
-		// const currentWeatherProps = {
-
-		// }
+		const currentWeatherProps = {
+			currently,
+			date: new Date()
+		};
 
 		return (
 			<div>
@@ -73,7 +70,7 @@ export default class App extends Component {
 					<button onClick={this.submitWeatherSearch}>Submit</button>
 				</div>
 				<div className="currentWeather">
-					<CurrentWeather />
+					<CurrentWeather {...currentWeatherProps} />
 				</div>
 			</div>
 		);
