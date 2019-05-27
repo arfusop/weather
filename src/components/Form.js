@@ -20,7 +20,7 @@ export default class Form extends Component {
 			this.updateGoogleLocationData(
 				formatted_address,
 				geometry.location.lat(),
-				geometry.location.lat()
+				geometry.location.lng()
 			);
 		});
 	};

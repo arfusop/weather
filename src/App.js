@@ -34,6 +34,7 @@ export default class App extends Component {
 			const api = `${process.env.REACT_APP_API_URL}forecast/${
 				process.env.REACT_APP_SECRET
 			}/${lat},${long}`;
+			console.log(api);
 			const url = proxy + api;
 			const parse = await fetch(url);
 			response = await parse.text();
