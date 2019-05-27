@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import Script from "react-load-script";
 
 export default class Form extends Component {
-	state = {
-		location: "",
-		lat: 0,
-		long: 0
-	};
-
 	handleScriptLoad = () => {
 		// Declare Options For Autocomplete
 		var options = { types: ["geocode"] };
@@ -32,21 +26,17 @@ export default class Form extends Component {
 	};
 
 	updateGoogleLocationData = (location, lat, long) => {
-		this.setState({
-			location,
-			lat,
-			long
-		});
+		const { updateGoogleLocationData } = this.props;
+		updateGoogleLocationData(location, lat, long);
 	};
 
 	updateInput = e => {
-		this.setState({
-			[e.target.name]: e.target.value
-		});
+		const { updateLocation } = this.props;
+		updateLocation(e.target.name, e.target.value);
 	};
 
 	render() {
-		const { location } = this.state;
+		const { location } = this.props;
 
 		return (
 			<div>
