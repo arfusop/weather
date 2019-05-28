@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
+import DailyWeather from "./components/DailyWeather";
 
 export default class App extends Component {
 	state = {
@@ -50,7 +51,7 @@ export default class App extends Component {
 
 	render() {
 		const { data, location } = this.state;
-		const { currently } = data;
+		const { currently, daily } = data;
 		const formProps = {
 			location,
 			updateGoogleLocationData: this.updateGoogleLocationData,
@@ -62,6 +63,10 @@ export default class App extends Component {
 			location,
 		};
 
+		const dailyProps = {
+			daily,
+		}
+
 		return (
 			<div>
 				<div className="form">
@@ -71,6 +76,9 @@ export default class App extends Component {
 				</div>
 				<div className="currentWeather">
 					{currently && <CurrentWeather {...currentWeatherProps} />}
+				</div>
+				<div className="dailyWeather">
+					{daily && <DailyWeather {...dailyProps} />}
 				</div>
 			</div>
 		);
