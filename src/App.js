@@ -34,13 +34,13 @@ export default class App extends Component {
 			const api = `${process.env.REACT_APP_API_URL}forecast/${
 				process.env.REACT_APP_SECRET
 			}/${lat},${long}`;
-			console.log(api);
+
 			const url = proxy + api;
 			const parse = await fetch(url);
 			response = await parse.text();
 			response = JSON.parse(response);
 
-			this.setState({
+			await this.setState({
 				data: response
 			});
 		} catch (error) {
@@ -59,7 +59,7 @@ export default class App extends Component {
 
 		const currentWeatherProps = {
 			currently,
-			date: new Date()
+			location,
 		};
 
 		return (
@@ -70,7 +70,7 @@ export default class App extends Component {
 					<button onClick={this.submitWeatherSearch}>Submit</button>
 				</div>
 				<div className="currentWeather">
-					<CurrentWeather {...currentWeatherProps} />
+					{currently && <CurrentWeather {...currentWeatherProps} />}
 				</div>
 			</div>
 		);
