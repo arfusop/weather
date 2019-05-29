@@ -2,10 +2,13 @@ import React, { Component } from "react";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
+import Alert from "./components/Alert";
+import { format } from "date-fns";
 
 export default class App extends Component {
 	state = {
 		data: {},
+		days: [],
 		location: "",
 		lat: 0,
 		long: 0
@@ -41,6 +44,13 @@ export default class App extends Component {
 			response = await parse.text();
 			response = JSON.parse(response);
 
+			const date = new Date();
+			const dayIndex = date.getDay();
+			const dayString = format(date.getDay(), "dddd");
+			console.log(dayString);
+
+			
+
 			await this.setState({
 				data: response
 			});
@@ -51,7 +61,7 @@ export default class App extends Component {
 
 	render() {
 		const { data, location } = this.state;
-		const { currently, daily } = data;
+		const { alerts, currently, daily } = data;
 		const formProps = {
 			location,
 			updateGoogleLocationData: this.updateGoogleLocationData,
@@ -60,12 +70,12 @@ export default class App extends Component {
 
 		const currentWeatherProps = {
 			currently,
-			location,
+			location
 		};
 
 		const dailyProps = {
-			daily,
-		}
+			daily
+		};
 
 		return (
 			<div>
@@ -77,9 +87,11 @@ export default class App extends Component {
 				<div className="currentWeather">
 					{currently && <CurrentWeather {...currentWeatherProps} />}
 				</div>
+				<hr />
 				<div className="dailyWeather">
 					{daily && <DailyWeather {...dailyProps} />}
 				</div>
+				<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
 			</div>
 		);
 	}

@@ -24,7 +24,10 @@ const CurrentWeather = ({ currently, location }) => {
 				</span>
 				<span>Humidity: {Math.round(currently.humidity * 100)}%</span>
 				<span>Wind: {Math.round(currently.windGust)} mph</span>
-			</div>
+      </div>
+      <div className="hourly">
+        
+      </div>
 		</div>
 	);
 };

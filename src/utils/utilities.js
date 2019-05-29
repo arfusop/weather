@@ -38,3 +38,7 @@ export const determineWeatherIcon = label => {
 
 	return icon;
 };
+
+export const daysForecastArray = day => {
+	// figure out how to calculate the other days of the upcoming week. should return an array of 8 day indexes, starting with the first one passed into this function
+};
