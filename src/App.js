@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
+import Hourly from "./components/HourlyWeather";
 import Alert from "./components/Alert";
 import { format } from "date-fns";
 
@@ -47,9 +48,11 @@ export default class App extends Component {
 			const date = new Date();
 			const dayIndex = date.getDay();
 			const dayString = format(date.getDay(), "dddd");
+			const daysArray = [0,1,2,3,4,5,6];
+			// loop through the days array, pop out the one that is the current day/split arra into two at the current day
+			// push that day into the new days array
+			// then loop through remaining day strings and push in order
 			console.log(dayString);
-
-			
 
 			await this.setState({
 				data: response
@@ -61,7 +64,7 @@ export default class App extends Component {
 
 	render() {
 		const { data, location } = this.state;
-		const { alerts, currently, daily } = data;
+		const { alerts, currently, daily, hourly, minutely } = data;
 		const formProps = {
 			location,
 			updateGoogleLocationData: this.updateGoogleLocationData,
@@ -77,6 +80,10 @@ export default class App extends Component {
 			daily
 		};
 
+		const hourlyProps = {
+			hourly
+		};
+
 		return (
 			<div>
 				<div className="form">
@@ -87,6 +94,8 @@ export default class App extends Component {
 				<div className="currentWeather">
 					{currently && <CurrentWeather {...currentWeatherProps} />}
 				</div>
+				<hr />
+				{hourly && <Hourly {...hourlyProps} />}
 				<hr />
 				<div className="dailyWeather">
 					{daily && <DailyWeather {...dailyProps} />}
