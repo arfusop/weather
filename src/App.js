@@ -4,6 +4,7 @@ import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
 import Hourly from "./components/HourlyWeather";
 import Alert from "./components/Alert";
+import Loader from "./components/Loader";
 import { format } from "date-fns";
 
 export default class App extends Component {
@@ -12,7 +13,8 @@ export default class App extends Component {
 		days: [],
 		location: "",
 		lat: 0,
-		long: 0
+		long: 0,
+		requesting: false
 	};
 
 	componentDidMount = async () => {};
@@ -35,6 +37,9 @@ export default class App extends Component {
 		const { lat, long } = this.state;
 		let response;
 		try {
+			this.setState({
+				requesting: true
+			});
 			const proxy = "https://cors-anywhere.herokuapp.com/";
 			const api = `${process.env.REACT_APP_API_URL}forecast/${
 				process.env.REACT_APP_SECRET
@@ -48,22 +53,25 @@ export default class App extends Component {
 			const date = new Date();
 			const dayIndex = date.getDay();
 			const dayString = format(date.getDay(), "dddd");
-			const daysArray = [0,1,2,3,4,5,6];
+			const daysArray = [0, 1, 2, 3, 4, 5, 6];
 			// loop through the days array, pop out the one that is the current day/split arra into two at the current day
 			// push that day into the new days array
 			// then loop through remaining day strings and push in order
 			console.log(dayString);
 
-			await this.setState({
-				data: response
-			});
+			setTimeout(() => {
+				this.setState({
+					data: response,
+					requesting: false
+				});
+			}, 2000);
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
 	render() {
-		const { data, location } = this.state;
+		const { data, location, requesting } = this.state;
 		const { alerts, currently, daily, hourly, minutely } = data;
 		const formProps = {
 			location,
@@ -101,6 +109,7 @@ export default class App extends Component {
 					{daily && <DailyWeather {...dailyProps} />}
 				</div>
 				<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
+				{requesting && <Loader />}
 			</div>
 		);
 	}
