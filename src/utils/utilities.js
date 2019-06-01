@@ -42,3 +42,129 @@ export const determineWeatherIcon = label => {
 export const daysForecastArray = day => {
 	// figure out how to calculate the other days of the upcoming week. should return an array of 8 day indexes, starting with the first one passed into this function
 };
+
+export const returnFeaturedCities = () => {
+	const usCities = [
+		{
+			city: "New York, NY, USA",
+			lat: 40.7127753,
+			long: -74.0059728
+		},
+		{
+			city: "Los Angeles, CA, USA",
+			lat: 34.0522342,
+			long: -118.2436849
+		},
+		{
+			city: "Chicago, IL, USA",
+			lat: 41.8781136,
+			long: -87.62979819999998
+		},
+		{
+			city: "Washington, DC, USA",
+			lat: 38.9071923,
+			long: -77.03687070000001
+		},
+		{
+			city: "Charleston, SC, USA",
+			lat: 32.7764749,
+			long: -79.93105120000001
+		},
+		{
+			city: "Dallas, TX, USA",
+			lat: 32.7766642,
+			long: -96.79698789999998
+		},
+		{
+			city: "San Francisco, CA, USA",
+			lat: 37.7749295,
+			long: -122.41941550000001
+		},
+		{
+			city: "Phoenix, AZ, USA",
+			lat: 33.4483771,
+			long: -112.07403729999999
+		},
+		{
+			city: "Seattle, WA, USA",
+			lat: 47.6062095,
+			long: -122.3320708
+		},
+		{
+			city: "Philadelphia, PA, USA",
+			lat: 39.9525839,
+			long: -75.16522150000003
+		}
+	];
+	const europeanCities = [
+		{
+			name: "Paris, France",
+			lat: 48.85661400000001,
+			long: 2.3522219000000177
+		},
+		{
+			name: "Rome, Italy",
+			lat: 41.90270080000001,
+			long: 12.496235200000001
+		},
+		{
+			name: "London, UK",
+			lat: 51.5073509,
+			long: -0.12775829999998223
+		},
+		{
+			name: "Barcelona, Spain",
+			lat: 41.38506389999999,
+			long: 2.1734034999999494
+		},
+		{
+			name: "Amsterdam, Netherlands",
+			lat: 52.3679843,
+			long: 4.903561399999944
+		}
+	];
+	const southAmericanCities = [
+		{
+			name: "Rio de Janeiro, Brazil",
+			lat: -22.9098755,
+			long: -43.20949710000002
+		},
+		{
+			name: "Bogota, Colombia",
+			lat: 4.648594000000001,
+			long: -74.104466
+		},
+		{
+			name: "Lima, Peru",
+			lat: -12.0463731,
+			long: -77.042754
+		},
+		{
+			name: "Medellin, Colombia",
+			lat: 6.244203,
+			long: -75.58121189999997
+		},
+		{
+			name: "Carcaras, Venezuela",
+			lat: 10.4805937,
+			long: -66.90360629999998
+		}
+	];
+
+	// select 3 randomly
+	const first = returnIndex(usCities.length - 1);
+	const second = returnIndex(europeanCities.length - 1);
+	const third = returnIndex(southAmericanCities.length - 1);
+	const featuredCities = [
+		usCities[first],
+		europeanCities[second],
+		southAmericanCities[third]
+	];
+	// return 3
+	return featuredCities;
+};
+
+const returnIndex = length => {
+	const val = Math.floor(Math.random() * length + 1);
+	return val;
+};

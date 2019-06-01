@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
-import Hourly from "./components/HourlyWeather";
+import HourlyWeather from "./components/HourlyWeather";
 import Alert from "./components/Alert";
 import Loader from "./components/Loader";
+import { returnFeaturedCities } from "./utils/utilities";
 import { format } from "date-fns";
 
 export default class App extends Component {
@@ -17,7 +18,10 @@ export default class App extends Component {
 		requesting: false
 	};
 
-	componentDidMount = async () => {};
+	componentDidMount = async () => {
+		const cities = returnFeaturedCities();
+		console.log(cities);
+	};
 
 	updateLocation = (name, value) => {
 		this.setState({
@@ -103,7 +107,7 @@ export default class App extends Component {
 					{currently && <CurrentWeather {...currentWeatherProps} />}
 				</div>
 				<hr />
-				{hourly && <Hourly {...hourlyProps} />}
+				{hourly && <HourlyWeather {...hourlyProps} />}
 				<hr />
 				<div className="dailyWeather">
 					{daily && <DailyWeather {...dailyProps} />}
