@@ -46,52 +46,52 @@ export const daysForecastArray = day => {
 export const returnFeaturedCities = () => {
 	const usCities = [
 		{
-			city: "New York, NY, USA",
+			name: "New York, NY, USA",
 			lat: 40.7127753,
 			long: -74.0059728
 		},
 		{
-			city: "Los Angeles, CA, USA",
+			name: "Los Angeles, CA, USA",
 			lat: 34.0522342,
 			long: -118.2436849
 		},
 		{
-			city: "Chicago, IL, USA",
+			name: "Chicago, IL, USA",
 			lat: 41.8781136,
 			long: -87.62979819999998
 		},
 		{
-			city: "Washington, DC, USA",
+			name: "Washington, DC, USA",
 			lat: 38.9071923,
 			long: -77.03687070000001
 		},
 		{
-			city: "Charleston, SC, USA",
+			name: "Charleston, SC, USA",
 			lat: 32.7764749,
 			long: -79.93105120000001
 		},
 		{
-			city: "Dallas, TX, USA",
+			name: "Dallas, TX, USA",
 			lat: 32.7766642,
 			long: -96.79698789999998
 		},
 		{
-			city: "San Francisco, CA, USA",
+			name: "San Francisco, CA, USA",
 			lat: 37.7749295,
 			long: -122.41941550000001
 		},
 		{
-			city: "Phoenix, AZ, USA",
+			name: "Phoenix, AZ, USA",
 			lat: 33.4483771,
 			long: -112.07403729999999
 		},
 		{
-			city: "Seattle, WA, USA",
+			name: "Seattle, WA, USA",
 			lat: 47.6062095,
 			long: -122.3320708
 		},
 		{
-			city: "Philadelphia, PA, USA",
+			name: "Philadelphia, PA, USA",
 			lat: 39.9525839,
 			long: -75.16522150000003
 		}

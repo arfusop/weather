@@ -17,9 +17,7 @@ export default class App extends Component {
 		lat: 0,
 		long: 0,
 		requesting: false,
-		featuredFirst: {},
-		featuredSecond: {},
-		featuredThird: {}
+		featured: []
 	};
 
 	componentDidMount = async () => {
@@ -55,15 +53,18 @@ export default class App extends Component {
 
 			featuredFirst = await firstResponse.text();
 			featuredFirst = JSON.parse(featuredFirst);
+			featuredFirst.name = cities[0].name;
+
 			featuredSecond = await secondResponse.text();
 			featuredSecond = JSON.parse(featuredSecond);
+			featuredSecond.name = cities[1].name;
+
 			featuredThird = await thirdResponse.text();
 			featuredThird = JSON.parse(featuredThird);
+			featuredThird.name = cities[2].name;
 
 			this.setState({
-				featuredFirst,
-				featuredSecond,
-				featuredThird,
+				featured: [featuredFirst, featuredSecond, featuredThird],
 				requesting: false
 			});
 		} catch (error) {
@@ -123,14 +124,7 @@ export default class App extends Component {
 	};
 
 	render() {
-		const {
-			data,
-			featuredFirst,
-			featuredSecond,
-			featuredThird,
-			location,
-			requesting
-		} = this.state;
+		const { data, featured, location, requesting } = this.state;
 		const { alerts, currently, daily, hourly } = data;
 		const formProps = {
 			location,
@@ -151,12 +145,6 @@ export default class App extends Component {
 			hourly
 		};
 
-		const featuredProps = {
-			featuredFirst,
-			featuredSecond,
-			featuredThird
-		};
-
 		return (
 			<div>
 				<div className="form">
@@ -165,7 +153,7 @@ export default class App extends Component {
 					<button onClick={this.submitWeatherSearch}>Submit</button>
 				</div>
 				<hr />
-				<Featured {...featuredProps} />
+				{featured.length && <Featured featured={featured} />}
 				<hr />
 				<div className="currentWeather">
 					{currently && <CurrentWeather {...currentWeatherProps} />}
