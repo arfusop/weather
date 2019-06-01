@@ -4,6 +4,7 @@ import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
 import HourlyWeather from "./components/HourlyWeather";
 import Alert from "./components/Alert";
+import Featured from "./components/Featured";
 import Loader from "./components/Loader";
 import { returnFeaturedCities } from "./utils/utilities";
 import { format } from "date-fns";
@@ -15,13 +16,59 @@ export default class App extends Component {
 		location: "",
 		lat: 0,
 		long: 0,
-		requesting: false
+		requesting: false,
+		featuredFirst: {},
+		featuredSecond: {},
+		featuredThird: {}
 	};
 
 	componentDidMount = async () => {
 		const cities = returnFeaturedCities();
 		console.log(cities);
 		// make api calls for each of the 3 returning cities
+		let featuredFirst;
+		let featuredSecond;
+		let featuredThird;
+
+		try {
+			this.setState({
+				requesting: true
+			});
+			const proxy = "https://cors-anywhere.herokuapp.com/";
+			const first = `${process.env.REACT_APP_API_URL}forecast/${
+				process.env.REACT_APP_SECRET
+			}/${cities[0].lat},${cities[0].long}`;
+			const second = `${process.env.REACT_APP_API_URL}forecast/${
+				process.env.REACT_APP_SECRET
+			}/${cities[1].lat},${cities[1].long}`;
+			const third = `${process.env.REACT_APP_API_URL}forecast/${
+				process.env.REACT_APP_SECRET
+			}/${cities[2].lat},${cities[2].long}`;
+
+			const firstApi = proxy + first;
+			const secondApi = proxy + second;
+			const thirdApi = proxy + third;
+
+			const firstResponse = await fetch(firstApi);
+			const secondResponse = await fetch(secondApi);
+			const thirdResponse = await fetch(thirdApi);
+
+			featuredFirst = await firstResponse.text();
+			featuredFirst = JSON.parse(featuredFirst);
+			featuredSecond = await secondResponse.text();
+			featuredSecond = JSON.parse(featuredSecond);
+			featuredThird = await thirdResponse.text();
+			featuredThird = JSON.parse(featuredThird);
+
+			this.setState({
+				featuredFirst,
+				featuredSecond,
+				featuredThird,
+				requesting: false
+			});
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	updateLocation = (name, value) => {
@@ -76,8 +123,15 @@ export default class App extends Component {
 	};
 
 	render() {
-		const { data, location, requesting } = this.state;
-		const { alerts, currently, daily, hourly, minutely } = data;
+		const {
+			data,
+			featuredFirst,
+			featuredSecond,
+			featuredThird,
+			location,
+			requesting
+		} = this.state;
+		const { alerts, currently, daily, hourly } = data;
 		const formProps = {
 			location,
 			updateGoogleLocationData: this.updateGoogleLocationData,
@@ -97,6 +151,12 @@ export default class App extends Component {
 			hourly
 		};
 
+		const featuredProps = {
+			featuredFirst,
+			featuredSecond,
+			featuredThird
+		};
+
 		return (
 			<div>
 				<div className="form">
@@ -104,6 +164,9 @@ export default class App extends Component {
 					<Form {...formProps} />
 					<button onClick={this.submitWeatherSearch}>Submit</button>
 				</div>
+				<hr />
+				<Featured {...featuredProps} />
+				<hr />
 				<div className="currentWeather">
 					{currently && <CurrentWeather {...currentWeatherProps} />}
 				</div>
