@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ThemeProvider } from "emotion-theming";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
@@ -6,6 +7,7 @@ import HourlyWeather from "./components/HourlyWeather";
 import Alert from "./components/Alert";
 import Featured from "./components/Featured";
 import Loader from "./components/Loader";
+import Grid from "./components/styled/Grid";
 import { returnFeaturedCities } from "./utils/utilities";
 import { format } from "date-fns";
 
@@ -145,28 +147,32 @@ export default class App extends Component {
 			hourly
 		};
 
+		const theme = {};
+
 		return (
-			<div>
-				<div className="form">
-					<div>weather app</div>
-					<Form {...formProps} />
-					<button onClick={this.submitWeatherSearch}>Submit</button>
-				</div>
-				<hr />
-				{featured.length && <Featured featured={featured} />}
-				<hr />
-				<div className="currentWeather">
-					{currently && <CurrentWeather {...currentWeatherProps} />}
-				</div>
-				<hr />
-				{hourly && <HourlyWeather {...hourlyProps} />}
-				<hr />
-				<div className="dailyWeather">
-					{daily && <DailyWeather {...dailyProps} />}
-				</div>
-				<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
-				{requesting && <Loader />}
-			</div>
+			<ThemeProvider theme={theme}>
+				<Grid className="appGrid">
+					<div className="form">
+						<div>weather app</div>
+						<Form {...formProps} />
+						<button onClick={this.submitWeatherSearch}>Submit</button>
+					</div>
+					<hr />
+					{featured.length && <Featured featured={featured} />}
+					<hr />
+					<div className="currentWeather">
+						{currently && <CurrentWeather {...currentWeatherProps} />}
+					</div>
+					<hr />
+					{hourly && <HourlyWeather {...hourlyProps} />}
+					<hr />
+					<div className="dailyWeather">
+						{daily && <DailyWeather {...dailyProps} />}
+					</div>
+					<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
+					{requesting && <Loader />}
+				</Grid>
+			</ThemeProvider>
 		);
 	}
 }
