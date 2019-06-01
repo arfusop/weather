@@ -4,9 +4,9 @@ const Featured = featured => {
 	return (
     <div>
     featured cities
+    <hr/>
 			{featured.featured.map(city => {
 				const {
-					name,
 					apparentTemperature,
 					temperature,
 					summary
@@ -15,7 +15,7 @@ const Featured = featured => {
 				const { temperatureHigh, temperatureLow } = city.daily.data[0];
 				return (
 					<div>
-						<div>{name}</div>
+						<div>{city.name}</div>
 						<div>
 							{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
 						</div>
