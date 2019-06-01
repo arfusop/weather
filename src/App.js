@@ -131,7 +131,8 @@ export default class App extends Component {
 		const formProps = {
 			location,
 			updateGoogleLocationData: this.updateGoogleLocationData,
-			updateLocation: this.updateLocation
+			updateLocation: this.updateLocation,
+			submitWeatherSearch: this.submitWeatherSearch
 		};
 
 		const currentWeatherProps = {
@@ -153,19 +154,14 @@ export default class App extends Component {
 			<ThemeProvider theme={theme}>
 				<Grid className="appGrid">
 					<div className="form">
-						<div>weather app</div>
+						<div style={{ fontSize: 24 }}>Just Another Weather App</div>
 						<Form {...formProps} />
-						<button onClick={this.submitWeatherSearch}>Submit</button>
 					</div>
-					<hr />
-					{featured.length && <Featured featured={featured} />}
-					<hr />
+					{featured.length ? <Featured featured={featured} /> : null}
 					<div className="currentWeather">
 						{currently && <CurrentWeather {...currentWeatherProps} />}
 					</div>
-					<hr />
 					{hourly && <HourlyWeather {...hourlyProps} />}
-					<hr />
 					<div className="dailyWeather">
 						{daily && <DailyWeather {...dailyProps} />}
 					</div>

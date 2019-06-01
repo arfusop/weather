@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Script from "react-load-script";
+import Input from "../components/styled/Input";
 
 export default class Form extends Component {
 	handleScriptLoad = () => {
@@ -36,22 +37,26 @@ export default class Form extends Component {
 	};
 
 	render() {
-		const { location } = this.props;
+		const { location, submitWeatherSearch } = this.props;
 
 		return (
-			<div>
+			<div className="searchContainer">
 				<Script
 					url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfBb7wMtoqYklIWJzZVv62bWsVvfIfZg0&libraries=places"
 					onLoad={this.handleScriptLoad}
 				/>
-				<input
+				<Input
 					onChange={e => this.updateInput(e)}
 					name="location"
 					value={location}
 					placeholder="Location"
 					id="locationSearch"
 					type="text"
+					className="searchBar"
 				/>
+				<button className="submitBtn" onClick={submitWeatherSearch}>
+					<i className="fas fa-search" />
+				</button>
 			</div>
 		);
 	}

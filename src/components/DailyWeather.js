@@ -10,7 +10,6 @@ const DailyWeather = ({ daily }) => {
 				<i className={`wi ${determineWeatherIcon(daily.icon)}`} />
 				<span>{daily.summary}</span>
 			</div>
-			<hr />
 			<div className="dailyRecap">
 				{daily.data.map(day => (
 					<div key={Math.random()}>
@@ -29,7 +28,6 @@ const DailyWeather = ({ daily }) => {
 							</div>
 							<div key={Math.random()}>{day.summary}</div>
 						</div>
-						<hr />
 					</div>
 				))}
 			</div>

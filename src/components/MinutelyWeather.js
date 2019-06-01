@@ -10,7 +10,6 @@ const MinutelyWeather = ({ minutely }) => {
 				<i className={`wi ${determineWeatherIcon(minutely.icon)}`} />
 				<span>{minutely.summary}</span>
 			</div>
-			<hr />
 			<div className="minutelyRecap">
 				{minutely.data.map(day => (
 					<div key={Math.random()}>
@@ -29,7 +28,6 @@ const MinutelyWeather = ({ minutely }) => {
 							</div>
 							<div key={Math.random()}>{day.summary}</div>
 						</div>
-						<hr />
 					</div>
 				))}
 			</div>

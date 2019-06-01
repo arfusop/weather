@@ -4,7 +4,6 @@ const Featured = featured => {
 	return (
     <div>
     featured cities
-    <hr/>
 			{featured.featured.map(city => {
 				const {
 					apparentTemperature,
