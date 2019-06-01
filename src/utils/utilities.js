@@ -121,6 +121,16 @@ export const returnFeaturedCities = () => {
 			name: "Amsterdam, Netherlands",
 			lat: 52.3679843,
 			long: 4.903561399999944
+		},
+		{
+			name: "Moscow, Russia",
+			lat: 55.755826,
+			long: 37.617299900000035
+		},
+		{
+			name: "Lisbon, Portugal",
+			lat: 38.7222524,
+			long: -9.139336599999979
 		}
 	];
 	const southAmericanCities = [
@@ -148,6 +158,16 @@ export const returnFeaturedCities = () => {
 			name: "Carcaras, Venezuela",
 			lat: 10.4805937,
 			long: -66.90360629999998
+		},
+		{
+			name: "Punta Cana, Dominican Republic",
+			lat: 18.5820101,
+			long: -68.4054729
+		},
+		{
+			name: "Cancun, Mexico",
+			lat: 21.161908,
+			long: -86.85152790000001
 		}
 	];
 

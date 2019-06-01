@@ -21,6 +21,7 @@ export default class App extends Component {
 	componentDidMount = async () => {
 		const cities = returnFeaturedCities();
 		console.log(cities);
+		// make api calls for each of the 3 returning cities
 	};
 
 	updateLocation = (name, value) => {
