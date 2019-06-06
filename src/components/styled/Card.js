@@ -9,7 +9,7 @@ const Card = styled.div`
 	align-items: center;
 	border: 1px solid black;
   margin: 5px;
-  
+  border-radius: 5px;
   /* @media (min-width: 600px) {
     width: 33%;
   }

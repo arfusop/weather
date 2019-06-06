@@ -24,7 +24,6 @@ export default class App extends Component {
 
 	componentDidMount = async () => {
 		const cities = returnFeaturedCities();
-		console.log(cities);
 		// make api calls for each of the 3 returning cities
 		let featuredFirst;
 		let featuredSecond;
@@ -104,15 +103,6 @@ export default class App extends Component {
 			const parse = await fetch(url);
 			response = await parse.text();
 			response = JSON.parse(response);
-
-			const date = new Date();
-			const dayIndex = date.getDay();
-			const dayString = format(date.getDay(), "dddd");
-			const daysArray = [0, 1, 2, 3, 4, 5, 6];
-			// loop through the days array, pop out the one that is the current day/split arra into two at the current day
-			// push that day into the new days array
-			// then loop through remaining day strings and push in order
-			console.log(dayString);
 
 			setTimeout(() => {
 				this.setState({
