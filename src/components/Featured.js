@@ -14,7 +14,7 @@ const Featured = featured => {
 
 					const { temperatureHigh, temperatureLow } = city.daily.data[0];
 					return (
-						<Card padding="10px" className="featuredCityCard" width="33%">
+						<Card padding="10px" className="featuredCityCard">
 							<div className="left">
 								<div>{city.name}</div>
 								<div>
