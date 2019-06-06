@@ -10,12 +10,12 @@ const Card = styled.div`
 	border: 1px solid black;
   margin: 5px;
   
-  @media (min-width: 600px) {
+  /* @media (min-width: 600px) {
     width: 33%;
   }
   @media (max-width: 600px) {
     width: 85%;
-  }
+  } */
 `;
 
 export default Card;

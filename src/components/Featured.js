@@ -17,13 +17,10 @@ const Featured = featured => {
 						<Card padding="10px" className="featuredCityCard">
 							<div className="left">
 								<div>{city.name}</div>
-								<div>
-									<i
-										className={`wi ${determineWeatherIcon(
-											city.currently.icon
-										)}`}
-									/>
-								</div>
+								<i
+									style={{ fontSize: "3rem", textAlign: "center" }}
+									className={`wi ${determineWeatherIcon(city.currently.icon)}`}
+								/>
 								<div>{format(new Date(), "MM/DD/YYYY h:mm a")}</div>
 							</div>
 							<WeatherIndicator>

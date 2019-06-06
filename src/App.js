@@ -161,10 +161,14 @@ export default class App extends Component {
 						{requesting && <Loader />}
 						<div className="currentWeather">
 							{currently && <CurrentWeather {...currentWeatherProps} />}
-						</div>
-						{hourly && <HourlyWeather {...hourlyProps} />}
-						<div className="dailyWeather">
-							{daily && <DailyWeather {...dailyProps} />}
+							<div className="detailedWeather">
+								<div className="hourly">
+									{hourly && <HourlyWeather {...hourlyProps} />}
+								</div>
+								<div className="daily">
+									{daily && <DailyWeather {...dailyProps} />}
+								</div>
+							</div>
 						</div>
 						<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
 						{featured.length ? <Featured featured={featured} /> : null}
