@@ -157,16 +157,18 @@ export default class App extends Component {
 						<div style={{ fontSize: 24 }}>Just Another Weather App</div>
 						<Form {...formProps} />
 					</div>
-					{featured.length ? <Featured featured={featured} /> : null}
-					<div className="currentWeather">
-						{currently && <CurrentWeather {...currentWeatherProps} />}
+					<div className="weatherData">
+						{requesting && <Loader />}
+						<div className="currentWeather">
+							{currently && <CurrentWeather {...currentWeatherProps} />}
+						</div>
+						{hourly && <HourlyWeather {...hourlyProps} />}
+						<div className="dailyWeather">
+							{daily && <DailyWeather {...dailyProps} />}
+						</div>
+						<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
+						{featured.length ? <Featured featured={featured} /> : null}
 					</div>
-					{hourly && <HourlyWeather {...hourlyProps} />}
-					<div className="dailyWeather">
-						{daily && <DailyWeather {...dailyProps} />}
-					</div>
-					<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
-					{requesting && <Loader />}
 				</Grid>
 			</ThemeProvider>
 		);

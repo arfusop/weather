@@ -1,5 +1,6 @@
 @import url("./assets/weather-icons/css/weather-icons.min.css");
 @import url("./styles/Loader.css");
+@import url("./styles/Featured.css");
 
 html,
 body,
@@ -29,8 +30,8 @@ body,
   font-size: 1.5rem;
   cursor: pointer;
   outline: none;
-	/* border-bottom-right-radius: 50%;
-	border-top-right-radius: 50%; */
+	border-bottom-right-radius: 20px;
+	border-top-right-radius: 20px;
 }
 
 .submitBtn:hover {
