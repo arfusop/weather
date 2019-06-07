@@ -48,52 +48,62 @@ export const returnFeaturedCities = () => {
 		{
 			name: "New York, NY, USA",
 			lat: 40.7127753,
-			long: -74.0059728
+			long: -74.0059728,
+			tzOffset: -240
 		},
 		{
 			name: "Los Angeles, CA, USA",
 			lat: 34.0522342,
-			long: -118.2436849
+			long: -118.2436849,
+			tzOffset: -420
 		},
 		{
 			name: "Chicago, IL, USA",
 			lat: 41.8781136,
-			long: -87.62979819999998
+			long: -87.62979819999998,
+			tzOffset: -300
 		},
 		{
 			name: "Washington, DC, USA",
 			lat: 38.9071923,
-			long: -77.03687070000001
+			long: -77.03687070000001,
+			tzOffset: -240
 		},
 		{
 			name: "Charleston, SC, USA",
 			lat: 32.7764749,
-			long: -79.93105120000001
+			long: -79.93105120000001,
+			tzOffset: -240
 		},
 		{
 			name: "Dallas, TX, USA",
 			lat: 32.7766642,
-			long: -96.79698789999998
+			long: -96.79698789999998,
+			tzOffset: -300
 		},
 		{
 			name: "San Francisco, CA, USA",
 			lat: 37.7749295,
-			long: -122.41941550000001
+			long: -122.41941550000001,
+			tzOffset: -420
 		},
 		{
 			name: "Phoenix, AZ, USA",
 			lat: 33.4483771,
-			long: -112.07403729999999
+			long: -112.07403729999999,
+			tzOffset: -420
 		},
 		{
 			name: "Seattle, WA, USA",
 			lat: 47.6062095,
-			long: -122.3320708
+			long: -122.3320708,
+			tzOffset: -420
 		},
 		{
 			name: "Philadelphia, PA, USA",
 			lat: 39.9525839,
-			long: -75.16522150000003
+			long: -75.16522150000003,
+			tzOffset: -240
 		}
 	];
 	const europeanCities = [

@@ -17,7 +17,7 @@ export default class Form extends Component {
 		this.autocomplete.addListener("place_changed", () => {
 			// Extract City From Address Object
 			let addressObject = this.autocomplete.getPlace();
-			console.log(addressObject);
+			console.log(addressObject.utc_offset);
 			const { formatted_address, geometry } = addressObject;
 			this.updateGoogleLocationData(
 				formatted_address,
