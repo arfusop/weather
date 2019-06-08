@@ -12,6 +12,7 @@ const DailyWeather = ({ daily }) => {
 			</div>
 			<div className="dailyRecap">
 				{daily.data.map((day, index) => {
+					console.log(day)
 					const current = new Date();
 					const newDate = addDays(current, index + 1);
 					return (
@@ -25,7 +26,7 @@ const DailyWeather = ({ daily }) => {
 									className={`wi ${determineWeatherIcon(day.icon)}`}
 								/>
 							</div>
-							<div className="dailyTemp">{daily.temperatureHigh} | {daily.temperatureLow}</div>
+							<div className="dailyTemp">{day.temperatureHigh} | {day.temperatureLow}</div>
 						</Bit>
 					);
 				})}
