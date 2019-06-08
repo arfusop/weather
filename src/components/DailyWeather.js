@@ -25,7 +25,7 @@ const DailyWeather = ({ daily }) => {
 									className={`wi ${determineWeatherIcon(day.icon)}`}
 								/>
 							</div>
-						<div className="dailyTemp">{daily.temperatureF}</div>
+							<div className="dailyTemp">{daily.temperatureHigh} | {daily.temperatureLow}</div>
 						</Bit>
 					);
 				})}
