@@ -9,17 +9,16 @@ import Featured from "./components/Featured";
 import Loader from "./components/Loader";
 import Grid from "./components/styled/Grid";
 import { returnFeaturedCities } from "./utils/utilities";
-import { format } from "date-fns";
 
 export default class App extends Component {
 	state = {
 		data: {},
-		days: [],
 		location: "",
 		lat: 0,
 		long: 0,
 		requesting: false,
-		featured: []
+		featured: [],
+		displaying: "daily"
 	};
 
 	componentDidMount = async () => {
@@ -116,7 +115,7 @@ export default class App extends Component {
 	};
 
 	render() {
-		const { data, featured, location, requesting } = this.state;
+		const { data, featured, location, requesting, displaying } = this.state;
 		const { alerts, currently, daily, hourly } = data;
 		const formProps = {
 			location,
@@ -127,7 +126,8 @@ export default class App extends Component {
 
 		const currentWeatherProps = {
 			currently,
-			location
+			location,
+			timezone: data.timezone
 		};
 
 		const dailyProps = {
@@ -152,15 +152,33 @@ export default class App extends Component {
 						<div className="currentWeather">
 							{currently && <CurrentWeather {...currentWeatherProps} />}
 							<div className="detailedWeather">
-								<div className="hourly">
-									{hourly && <HourlyWeather {...hourlyProps} />}
-								</div>
-								<div className="daily">
-									{daily && <DailyWeather {...dailyProps} />}
-								</div>
+								{(daily || hourly) && (
+									<React.Fragment>
+										<div className="btnsRow">
+											<button>Daily</button>
+											<button>Hourly</button>
+										</div>
+										<div className="dataRow">
+											<div className="hourly">
+												{displaying === "hourly" && (
+													<HourlyWeather {...hourlyProps} />
+												)}
+											</div>
+											<div className="daily">
+												{displaying === "daily" && (
+													<DailyWeather {...dailyProps} />
+												)}
+											</div>
+										</div>
+									</React.Fragment>
+								)}
 							</div>
 						</div>
-						<div className="alert">{alerts && <Alert alert={alerts[0]} />}</div>
+						{alerts && (
+							<div className="alert">
+								<Alert alert={alerts[0]} />
+							</div>
+						)}
 						{featured.length ? <Featured featured={featured} /> : null}
 					</div>
 				</Grid>

@@ -1,9 +1,12 @@
 import React from "react";
-import { determineWeatherIcon } from "../utils/utilities.js";
+import {
+	determineWeatherIcon,
+	returnLocalDateTime
+} from "../utils/utilities.js";
 import { format } from "date-fns";
 import Card from "./styled/Card";
 
-const CurrentWeather = ({ currently, location }) => {
+const CurrentWeather = ({ currently, location, timezone }) => {
 	return (
 		<div className="currentWeatherContainer">
 			<Card>
@@ -11,7 +14,12 @@ const CurrentWeather = ({ currently, location }) => {
 					<span>{location}</span>
 				</div>
 				<div className="currentTime">
-					<span>{format(new Date(), "M/D/YYYY hh:mm A")}</span>
+					<span>
+						{format(
+							returnLocalDateTime(new Date(), timezone),
+							"M/D/YYYY hh:mm A"
+						)}
+					</span>
 				</div>
 				<div className="summary">
 					<span>{currently.summary}</span>

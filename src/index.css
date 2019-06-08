@@ -2,6 +2,7 @@
 @import url("./styles/Loader.css");
 @import url("./styles/Featured.css");
 @import url("./styles/Current.css");
+@import url("./styles/DailyHourly.css");
 
 html,
 body,
@@ -45,6 +46,8 @@ body,
 
 .weatherData {
 	width: 100vw;
+	display: grid;
+	grid-template-rows: 1fr 1fr;
 }
 
 .left {
