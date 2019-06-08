@@ -1,7 +1,10 @@
 import React from "react";
 import Card from "./styled/Card";
 import { format } from "date-fns";
-import { determineWeatherIcon } from "../utils/utilities.js";
+import {
+	determineWeatherIcon,
+	returnLocalDateTime
+} from "../utils/utilities.js";
 import WeatherIndicator from "./styled/WeatherIndicator";
 
 const Featured = featured => {
@@ -27,8 +30,15 @@ const Featured = featured => {
 									/>
 								</div>
 								<div>
-									{format(new Date(), "dddd, MM/YYYY")}
-									<br /> {format(new Date(), "h:mm a")}
+									{format(
+										returnLocalDateTime(new Date(), city.timezone),
+										"dddd, MM/YYYY"
+									)}
+									<br />{" "}
+									{format(
+										returnLocalDateTime(new Date(), city.timezone),
+										"h:mm a"
+									)}
 								</div>
 							</div>
 							<WeatherIndicator>

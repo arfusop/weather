@@ -110,74 +110,88 @@ export const returnFeaturedCities = () => {
 		{
 			name: "Paris, France",
 			lat: 48.85661400000001,
-			long: 2.3522219000000177
+			long: 2.3522219000000177,
+			tzOffset: 120
 		},
 		{
 			name: "Rome, Italy",
 			lat: 41.90270080000001,
-			long: 12.496235200000001
+			long: 12.496235200000001,
+			tzOffset: 120
 		},
 		{
 			name: "London, UK",
 			lat: 51.5073509,
-			long: -0.12775829999998223
+			long: -0.12775829999998223,
+			tzOffset: 60
 		},
 		{
 			name: "Barcelona, Spain",
 			lat: 41.38506389999999,
-			long: 2.1734034999999494
+			long: 2.1734034999999494,
+			tzOffset: 120
 		},
 		{
 			name: "Amsterdam, Netherlands",
 			lat: 52.3679843,
-			long: 4.903561399999944
+			long: 4.903561399999944,
+			tzOffset: 120
 		},
 		{
 			name: "Moscow, Russia",
 			lat: 55.755826,
-			long: 37.617299900000035
+			long: 37.617299900000035,
+			tzOffset: 180
 		},
 		{
 			name: "Lisbon, Portugal",
 			lat: 38.7222524,
-			long: -9.139336599999979
+			long: -9.139336599999979,
+			tzOffset: 60
 		}
 	];
 	const southAmericanCities = [
 		{
 			name: "Rio de Janeiro, Brazil",
 			lat: -22.9098755,
-			long: -43.20949710000002
+			long: -43.20949710000002,
+			tzOffset: -180
 		},
 		{
 			name: "Bogota, Colombia",
 			lat: 4.648594000000001,
-			long: -74.104466
+			long: -74.104466,
+			tzOffset: -300
 		},
 		{
 			name: "Lima, Peru",
 			lat: -12.0463731,
-			long: -77.042754
+			long: -77.042754,
+			tzOffset: -300
 		},
 		{
 			name: "Medellin, Colombia",
 			lat: 6.244203,
-			long: -75.58121189999997
+			long: -75.58121189999997,
+			tzOffset: -300
 		},
 		{
 			name: "Carcaras, Venezuela",
 			lat: 10.4805937,
-			long: -66.90360629999998
+			long: -66.90360629999998,
+			tzOffset: -240
 		},
 		{
 			name: "Punta Cana, Dominican Republic",
 			lat: 18.5820101,
-			long: -68.4054729
+			long: -68.4054729,
+			tzOffset: -240
 		},
 		{
 			name: "Cancun, Mexico",
 			lat: 21.161908,
-			long: -86.85152790000001
+			long: -86.85152790000001,
+			tzOffset: -300
 		}
 	];
 
@@ -197,4 +211,20 @@ export const returnFeaturedCities = () => {
 const returnIndex = length => {
 	const val = Math.floor(Math.random() * length + 1);
 	return val;
+};
+
+export const returnLocalDateTime = (date, location) => {
+	// suppose the date is 12:00 UTC
+	const invdate = new Date(
+		date.toLocaleString("en-US", {
+			timeZone: location
+		})
+	);
+
+	// then invdate will be 07:00 in Toronto
+	// and the diff is 5 hours
+	const diff = date.getTime() - invdate.getTime();
+
+	// so 12:00 in Toronto is 17:00 UTC
+	return new Date(date.getTime() + diff);
 };
