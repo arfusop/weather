@@ -114,6 +114,13 @@ export default class App extends Component {
 		}
 	};
 
+	handleClick = e => {
+		e.persist();
+		this.setState({
+			displaying: e.target.name
+		});
+	};
+
 	render() {
 		const { data, featured, location, requesting, displaying } = this.state;
 		const { alerts, currently, daily, hourly } = data;
@@ -155,8 +162,12 @@ export default class App extends Component {
 								{(daily || hourly) && (
 									<React.Fragment>
 										<div className="btnsRow">
-											<button>Daily</button>
-											<button>Hourly</button>
+											<button name="daily" onClick={e => this.handleClick(e)}>
+												Daily
+											</button>
+											<button name="hourly" onClick={e => this.handleClick(e)}>
+												Hourly
+											</button>
 										</div>
 										<div className="dataRow">
 											<div className="hourly">

@@ -12,7 +12,6 @@ const DailyWeather = ({ daily }) => {
 			</div>
 			<div className="dailyRecap">
 				{daily.data.map((day, index) => {
-					console.log(day)
 					const current = new Date();
 					const newDate = addDays(current, index + 1);
 					return (

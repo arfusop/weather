@@ -4,3 +4,20 @@
 	grid-template-columns: 1fr 2fr;
 	grid-gap: 10px;
 }
+
+@media (max-width: 600px) {
+	.currentWeather {
+		width: 100vw;
+		max-width: 100vw;
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 1fr;
+	}
+}
+
+.currentWeatherContainer {
+	width: inherit;
+}
+
+.detailedWeather {
+	width: inherit;
+}
