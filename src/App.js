@@ -162,24 +162,32 @@ export default class App extends Component {
 								{(daily || hourly) && (
 									<React.Fragment>
 										<div className="btnsRow">
-											<button name="daily" onClick={e => this.handleClick(e)}>
+											<button
+												className="detailedBtnLabels"
+												name="daily"
+												onClick={e => this.handleClick(e)}
+											>
 												Daily
 											</button>
-											<button name="hourly" onClick={e => this.handleClick(e)}>
+											<button
+												className="detailedBtnLabels"
+												name="hourly"
+												onClick={e => this.handleClick(e)}
+											>
 												Hourly
 											</button>
 										</div>
 										<div className="dataRow">
-											<div className="hourly">
-												{displaying === "hourly" && (
+											{displaying === "hourly" && (
+												<div className="hourly">
 													<HourlyWeather {...hourlyProps} />
-												)}
-											</div>
-											<div className="daily">
-												{displaying === "daily" && (
+												</div>
+											)}
+											{displaying === "daily" && (
+												<div className="daily">
 													<DailyWeather {...dailyProps} />
-												)}
-											</div>
+												</div>
+											)}
 										</div>
 									</React.Fragment>
 								)}

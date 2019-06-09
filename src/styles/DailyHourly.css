@@ -10,4 +10,23 @@
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	border-bottom: 1px solid black;
+}
+
+.detailedBtnLabels {
+	width: 50%;
+	border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.detailedWeather {
+  width: inherit;
+  display: grid;
+  grid-template-rows: 40px 1fr;
+}
+
+.summary {
+  padding: 5px;
+  border-bottom: 1px solid black;
 }
