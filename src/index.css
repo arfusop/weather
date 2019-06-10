@@ -1,4 +1,5 @@
 @import url("./assets/weather-icons/css/weather-icons.min.css");
+@import url("./styles/reset.css");
 @import url("./styles/Loader.css");
 @import url("./styles/Featured.css");
 @import url("./styles/Current.css");
@@ -9,7 +10,7 @@ body,
 #root,
 .appGrid {
 	height: 100%;
-	width: 100%;
+	width: 100vw;
 	margin: 0;
 }
 
@@ -18,8 +19,8 @@ body,
 	flex-direction: column;
 	justify-content: end;
 	align-items: center;
-	width: auto;
-	padding: 10px;
+	width: 100vw;
+	/* padding: 10px; */
 }
 
 .searchContainer {
@@ -48,7 +49,6 @@ body,
 	width: auto;
 	display: grid;
 	grid-template-rows: 0.5fr 1fr;
-	padding: 10px;
 }
 
 .left {

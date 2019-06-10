@@ -7,9 +7,6 @@ const DailyWeather = ({ daily }) => {
 	return (
 		<React.Fragment>
 			<div className="dailySummary">
-				<div className="iconSummary">
-					<i className={`wi ${determineWeatherIcon(daily.icon)}`} />
-				</div>
 				<div>{daily.summary}</div>
 			</div>
 			<div className="dailyRecap">
@@ -24,17 +21,16 @@ const DailyWeather = ({ daily }) => {
 									index + 1 === daily.data.length ? "none" : "1px solid black"
 							}}
 						>
-							<div className="dailyDate">
-								{format(newDate, "dddd, MM/YYYY")}
-							</div>
+							<div className="dailyDate">{format(newDate, "ddd")}</div>
 							<div key={Math.random()} className="dailyIconContainer">
 								<i
 									key={Math.random()}
-									className={`wi ${determineWeatherIcon(day.icon)}`}
+									className={`wi ${determineWeatherIcon(day.icon)} dailyIcon`}
 								/>
 							</div>
 							<div className="dailyTemp">
-								{day.temperatureHigh} | {day.temperatureLow}
+								{Math.round(day.temperatureHigh)} |{" "}
+								{Math.round(day.temperatureLow)}
 							</div>
 						</Bit>
 					);

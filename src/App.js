@@ -156,43 +156,52 @@ export default class App extends Component {
 					</div>
 					<div className="weatherData">
 						{requesting && <Loader />}
-						<div className="currentWeather">
-							{currently && <CurrentWeather {...currentWeatherProps} />}
-							<div className="detailedWeather">
-								{(daily || hourly) && (
-									<React.Fragment>
-										<div className="btnsRow">
-											<button
-												className="detailedBtnLabels"
-												name="daily"
-												onClick={e => this.handleClick(e)}
-											>
-												Daily
-											</button>
-											<button
-												className="detailedBtnLabels"
-												name="hourly"
-												onClick={e => this.handleClick(e)}
-											>
-												Hourly
-											</button>
-										</div>
-										<div className="dataRow">
-											{displaying === "hourly" && (
-												<div className="hourly">
-													<HourlyWeather {...hourlyProps} />
-												</div>
-											)}
-											{displaying === "daily" && (
-												<div className="daily">
-													<DailyWeather {...dailyProps} />
-												</div>
-											)}
-										</div>
-									</React.Fragment>
-								)}
+						{currently && (
+							<div className="currentWeather">
+								{currently && <CurrentWeather {...currentWeatherProps} />}
+								<div className="detailedWeather">
+									{(daily || hourly) && (
+										<React.Fragment>
+											<div className="btnsRow">
+												<button
+													className="detailedBtnLabels"
+													name="daily"
+													onClick={e => this.handleClick(e)}
+													style={{
+														fontWeight: displaying === "daily" && "bold"
+													}}
+												>
+													Daily
+												</button>
+												<div className="divider" />
+												<button
+													className="detailedBtnLabels"
+													name="hourly"
+													onClick={e => this.handleClick(e)}
+													style={{
+														fontWeight: displaying === "hourly" && "bold"
+													}}
+												>
+													Hourly
+												</button>
+											</div>
+											<div className="dataRow">
+												{displaying === "hourly" && (
+													<div className="hourly">
+														<HourlyWeather {...hourlyProps} />
+													</div>
+												)}
+												{displaying === "daily" && (
+													<div className="daily">
+														<DailyWeather {...dailyProps} />
+													</div>
+												)}
+											</div>
+										</React.Fragment>
+									)}
+								</div>
 							</div>
-						</div>
+						)}
 						{alerts && (
 							<div className="alert">
 								<Alert alert={alerts[0]} />

@@ -8,8 +8,8 @@ const Bit = styled.div`
 	align-items: center;
 	text-align: center;
 	padding: 0 5px;
-	max-width: 80px;
-	width: 70px;
+	/* max-width: 80px;
+	width: 70px; */
 	border-right: 1px solid black;
 `;
 

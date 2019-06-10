@@ -19,6 +19,7 @@
 	padding: 5px;
 	cursor: pointer;
 	background-color: transparent;
+	font-size: 20px;
 }
 
 .detailedWeather {
@@ -39,9 +40,9 @@
 	padding: 5px;
 	border-bottom: 1px solid black;
 	display: grid;
-	grid-template-columns: 30px 1fr;
+	grid-template-columns: 1fr;
 	align-items: center;
-	grid-gap: 5px;
+	justify-items: center;
 }
 
 .dataRow {
@@ -52,4 +53,13 @@
 .iconSummary {
 	/* border-right: 1px solid black; */
 	text-align: center;
+}
+
+.dailyIcon {
+	font-size: 30px;
+}
+.divider {
+	height: 100%;
+	width: 1px;
+	background-color: black;
 }
