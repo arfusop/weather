@@ -8,6 +8,8 @@ import Alert from "./components/Alert";
 import Featured from "./components/Featured";
 import Loader from "./components/Loader";
 import Grid from "./components/styled/Grid";
+
+import Title from "./components/styled/Title";
 import { returnFeaturedCities } from "./utils/utilities";
 
 export default class App extends Component {
@@ -151,7 +153,7 @@ export default class App extends Component {
 			<ThemeProvider theme={theme}>
 				<Grid className="appGrid">
 					<div className="form">
-						<div style={{ fontSize: 24 }}>Just Another Weather App</div>
+						<Title className="AppTitle">Just Another Weather App</Title>
 						<Form {...formProps} />
 					</div>
 					<div className="weatherData">
@@ -209,6 +211,7 @@ export default class App extends Component {
 						)}
 						{featured.length ? <Featured featured={featured} /> : null}
 					</div>
+					<div className="footer">Footer</div>
 				</Grid>
 			</ThemeProvider>
 		);

@@ -5,10 +5,12 @@ import {
 } from "../utils/utilities.js";
 import { format } from "date-fns";
 import Card from "./styled/Card";
+import Title from "./styled/Title";
 
 const CurrentWeather = ({ currently, location, timezone }) => {
 	return (
 		<div className="currentWeatherContainer">
+			<Title className="currentWeatherTitle">Currently...</Title>
 			<Card>
 				<div className="location">
 					<span>{location}</span>

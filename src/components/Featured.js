@@ -6,11 +6,12 @@ import {
 	returnLocalDateTime
 } from "../utils/utilities.js";
 import WeatherIndicator from "./styled/WeatherIndicator";
+import Title from "./styled/Title";
 
 const Featured = featured => {
 	return (
 		<div className="featuredCitiesContainer">
-			<div className="featuredTitle">Featured</div>
+			<Title>Featured</Title>
 			<div className="featuredCities">
 				{featured.featured.map(city => {
 					const { apparentTemperature, temperature } = city.currently;

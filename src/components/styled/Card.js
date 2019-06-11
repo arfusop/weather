@@ -7,9 +7,9 @@ const Card = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	border: 1px solid black;
-	margin: 5px;
+	/* margin: 5px; */
 	border-radius: 5px;
-	// height: 100%;
+	/* height: 100%; */
 	max-height: ${props => props.height};
 `;
 

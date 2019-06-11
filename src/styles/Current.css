@@ -1,8 +1,9 @@
 .currentWeather {
 	display: grid;
-	grid-template-rows: 1fr;
-	grid-template-columns: 1fr 2fr;
+	grid-template-rows: 1fr 1fr;
+	grid-template-columns: 1fr;
 	grid-gap: 10px;
+	justify-items: center;
 }
 
 @media (max-width: 1010px) {
@@ -24,5 +25,6 @@
 .currentWeatherContainer {
 	width: inherit;
 	display: grid;
-	grid-template-rows: 1fr;
+	grid-template-rows: 40px 1fr;
+	width: 90%;
 }

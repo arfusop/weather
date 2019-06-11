@@ -24,7 +24,7 @@ body,
 }
 
 .searchContainer {
-	width: 100%;
+	width: 90%;
 	display: flex;
 	justify-content: center;
 }
@@ -48,7 +48,9 @@ body,
 .weatherData {
 	width: auto;
 	display: grid;
-	grid-template-rows: 0.5fr 1fr;
+	/* grid-template-rows: 0.5fr 1fr; */
+	/* grid-template-rows: 1.5fr 1fr; */
+	grid-template-rows: 1fr 1fr;
 }
 
 .left {
