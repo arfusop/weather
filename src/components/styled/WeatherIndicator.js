@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 
 const WeatherIndicator = styled.div`
 	/* circle styles */
-	width: 130px;
-	height: 130px;
+	width: 140px;
+	height: 140px;
 	border: 1px solid #222;
 	border-radius: 50%;
 
@@ -16,6 +16,16 @@ const WeatherIndicator = styled.div`
 	align-items: center;
 	/* center all content vertically */
 	justify-content: center;
+
+	.feelsLike,
+	.high_low {
+		font-size: 1rem;
+	}
+
+	.currentTemp {
+		font-size: 1.75rem;
+		margin: 8px 0;
+	}
 `;
 
 export default WeatherIndicator;

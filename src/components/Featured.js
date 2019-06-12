@@ -22,13 +22,13 @@ const Featured = featured => {
 							<div className="left">
 								<div>{city.name}</div>
 								<div className="featuredIcon">
-									{city.currently.summary}
 									<i
 										style={{ fontSize: "1.5rem", textAlign: "center" }}
 										className={`wi ${determineWeatherIcon(
 											city.currently.icon
 										)}`}
 									/>
+									{city.currently.summary}
 								</div>
 								<div>
 									{format(
@@ -43,11 +43,13 @@ const Featured = featured => {
 								</div>
 							</div>
 							<WeatherIndicator>
-								<div>
+								<div className="high_low">
 									{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
 								</div>
-								<div>{Math.round(temperature)}</div>
-								<div>Feels like {apparentTemperature}</div>
+								<div className="currentTemp">{Math.round(temperature)}</div>
+								<div className="feelsLike">
+									Feels like {apparentTemperature}
+								</div>
 							</WeatherIndicator>
 						</Card>
 					);

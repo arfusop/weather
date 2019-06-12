@@ -11,6 +11,11 @@ const Card = styled.div`
 	border-radius: 5px;
 	/* height: 100%; */
 	max-height: ${props => props.height};
+
+	.featuredCityCard {
+		display: grid;
+		grid-template-columns: 1.5fr 2fr;
+	}
 `;
 
 export default Card;
