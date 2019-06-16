@@ -9,7 +9,7 @@ const Card = styled.div`
 	border: 1px solid black;
 	/* margin: 5px; */
 	border-radius: 5px;
-	/* height: 100%; */
+	height: ${props => props.height};
 	max-height: ${props => props.height};
 
 	.featuredCityCard {

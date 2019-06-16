@@ -8,7 +8,7 @@
 
 @media (max-width: 1010px) {
 	.currentWeather {
-		grid-template-rows: 1fr;
+		/* grid-template-rows: 1fr; */
 		grid-template-columns: 1fr;
 	}
 }
@@ -27,4 +27,56 @@
 	display: grid;
 	grid-template-rows: 40px 1fr;
 	width: 90%;
+}
+
+.currentWeatherTile {
+	display: grid;
+	border: 1px solid black;
+	border-radius: 3px;
+	padding: 5px;
+	grid-template-columns: 30% 1fr;
+	grid-gap: 10px;
+	font-size: 18px;
+}
+
+.currentWeatherInfo {
+	display: grid;
+	grid-template-rows: 40% 1fr;
+}
+
+.otherInfo {
+	display: grid;
+	grid-gap: 5px;
+	justify-content: center;
+	align-items: center;
+}
+
+.currentWeatherRemainingData {
+	display: grid;
+	grid-template-rows: 1fr 1fr;
+}
+
+.currentlyTop {
+	display: grid;
+	grid-template-columns: 1fr 30%;
+}
+
+.currentlyBottom {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.currentWeatherIconContainer {
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.temp {
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

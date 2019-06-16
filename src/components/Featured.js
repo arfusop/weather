@@ -48,7 +48,7 @@ const Featured = featured => {
 								</div>
 								<div className="currentTemp">{Math.round(temperature)}</div>
 								<div className="feelsLike">
-									Feels like {apparentTemperature}
+									Feels like {Math.round(apparentTemperature)}
 								</div>
 							</WeatherIndicator>
 						</Card>

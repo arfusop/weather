@@ -14,21 +14,15 @@
 }
 
 .detailedBtnLabels {
-	width: 50%;
-	border: none;
 	padding: 5px;
-	cursor: pointer;
-	background-color: transparent;
 	font-size: 20px;
+	font-weight: bold;
 }
 
 .detailedWeather {
 	width: 90%;
 	display: grid;
 	grid-template-rows: 40px 1fr;
-	/* margin: 5px; */
-	border: 1px solid black;
-	border-radius: 5px;
 }
 
 .daily {
@@ -48,6 +42,8 @@
 .dataRow {
 	display: grid;
 	grid-template-rows: 1fr;
+	border: 1px solid black;
+	border-radius: 3px;
 }
 
 .iconSummary {
@@ -57,9 +53,4 @@
 
 .dailyIcon {
 	font-size: 30px;
-}
-.divider {
-	height: 100%;
-	width: 1px;
-	background-color: black;
 }

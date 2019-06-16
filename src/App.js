@@ -3,7 +3,6 @@ import { ThemeProvider } from "emotion-theming";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
-import HourlyWeather from "./components/HourlyWeather";
 import Alert from "./components/Alert";
 import Featured from "./components/Featured";
 import Loader from "./components/Loader";
@@ -19,8 +18,7 @@ export default class App extends Component {
 		lat: 0,
 		long: 0,
 		requesting: false,
-		featured: [],
-		displaying: "daily"
+		featured: []
 	};
 
 	componentDidMount = async () => {
@@ -116,15 +114,8 @@ export default class App extends Component {
 		}
 	};
 
-	handleClick = e => {
-		e.persist();
-		this.setState({
-			displaying: e.target.name
-		});
-	};
-
 	render() {
-		const { data, featured, location, requesting, displaying } = this.state;
+		const { data, featured, location, requesting } = this.state;
 		const { alerts, currently, daily, hourly } = data;
 		const formProps = {
 			location,
@@ -136,15 +127,12 @@ export default class App extends Component {
 		const currentWeatherProps = {
 			currently,
 			location,
-			timezone: data.timezone
+			timezone: data.timezone,
+			hourly
 		};
 
 		const dailyProps = {
 			daily
-		};
-
-		const hourlyProps = {
-			hourly
 		};
 
 		const theme = {};
@@ -162,56 +150,43 @@ export default class App extends Component {
 							<div className="currentWeather">
 								{currently && <CurrentWeather {...currentWeatherProps} />}
 								<div className="detailedWeather">
-									{(daily || hourly) && (
-										<React.Fragment>
-											<div className="btnsRow">
-												<button
-													className="detailedBtnLabels"
-													name="daily"
-													onClick={e => this.handleClick(e)}
-													style={{
-														fontWeight: displaying === "daily" && "bold"
-													}}
-												>
-													Daily
-												</button>
-												<div className="divider" />
-												<button
-													className="detailedBtnLabels"
-													name="hourly"
-													onClick={e => this.handleClick(e)}
-													style={{
-														fontWeight: displaying === "hourly" && "bold"
-													}}
-												>
-													Hourly
-												</button>
-											</div>
-											<div className="dataRow">
-												{displaying === "hourly" && (
-													<div className="hourly">
-														<HourlyWeather {...hourlyProps} />
-													</div>
-												)}
-												{displaying === "daily" && (
-													<div className="daily">
-														<DailyWeather {...dailyProps} />
-													</div>
-												)}
-											</div>
-										</React.Fragment>
-									)}
+									<Title>Daily</Title>
+									<div className="dataRow">
+										<div className="daily">
+											<DailyWeather {...dailyProps} />
+										</div>
+									</div>
 								</div>
 							</div>
 						)}
-						{alerts && (
+						{alerts && false && (
 							<div className="alert">
 								<Alert alert={alerts[0]} />
 							</div>
 						)}
 						{featured.length ? <Featured featured={featured} /> : null}
 					</div>
-					<div className="footer">Footer</div>
+					<div className="footer">
+						<div className="links">
+							<a
+							className="footerLink"
+								href="https://github.com/arfusop"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i className="footerIcon fab fa-github-square" />
+							</a>
+							<a
+							className="footerLink"
+								href="https://www.linkedin.com/in/phil-arfuso"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								<i className="footerIcon fab fa-linkedin" />
+							</a>
+						</div>
+						<div className="branding">Made by Phil Arfuso</div>
+					</div>
 				</Grid>
 			</ThemeProvider>
 		);

@@ -12,7 +12,7 @@ const DailyWeather = ({ daily }) => {
 			<div className="dailyRecap">
 				{daily.data.map((day, index) => {
 					const current = new Date();
-					const newDate = addDays(current, index + 1);
+					const newDate = addDays(current, index === 0 ? index : index + 1);
 					return (
 						<Bit
 							key={Math.random()}
