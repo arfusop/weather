@@ -4,7 +4,7 @@ import {
 	returnLocalDateTime
 } from "../utils/utilities.js";
 import { format } from "date-fns";
-// import Card from "./styled/Card";
+import Degrees from "./Degrees";
 import Title from "./styled/Title";
 
 const CurrentWeather = ({ currently, location, timezone, hourly }) => {
@@ -14,7 +14,7 @@ const CurrentWeather = ({ currently, location, timezone, hourly }) => {
 			<div className="currentWeatherTile">
 				<div className="currentWeatherInfo">
 					<div className="temp">
-						<span>{Math.round(currently.temperature)} F</span>
+						<Degrees value={currently.temperature} unit="F" />
 					</div>
 					<div className="otherInfo">
 						<span>

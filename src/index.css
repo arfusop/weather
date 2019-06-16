@@ -81,3 +81,14 @@ body,
 	color: black;
 	cursor: pointer;
 }
+
+.degreesContainer {
+	display: flex;
+}
+
+.circle {
+	height: 3px;
+	width: 3px;
+	border-radius: 50%;
+	border: 1px solid black;
+}

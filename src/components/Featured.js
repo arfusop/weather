@@ -7,6 +7,7 @@ import {
 } from "../utils/utilities.js";
 import WeatherIndicator from "./styled/WeatherIndicator";
 import Title from "./styled/Title";
+import Degrees from "./Degrees";
 
 const Featured = featured => {
 	return (
@@ -47,7 +48,9 @@ const Featured = featured => {
 									<div className="high_low">
 										{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
 									</div>
-									<div className="currentTemp">{Math.round(temperature)}</div>
+									<div className="currentTemp">
+										<Degrees value={temperature} unit="F" />
+									</div>
 									<div className="feelsLike">
 										Feels like {Math.round(apparentTemperature)}
 									</div>
