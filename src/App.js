@@ -135,7 +135,9 @@ export default class App extends Component {
 			daily
 		};
 
-		const theme = {};
+		const theme = {
+			titleFont: '24px',
+		};
 
 		return (
 			<ThemeProvider theme={theme}>

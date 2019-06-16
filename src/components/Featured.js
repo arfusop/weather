@@ -19,38 +19,40 @@ const Featured = featured => {
 					const { temperatureHigh, temperatureLow } = city.daily.data[0];
 					return (
 						<Card padding="10px" height="220px" className="featuredCityCard">
-							<div className="left">
-								<div>{city.name}</div>
-								<div className="featuredIcon">
-									<i
-										style={{ fontSize: "1.5rem", textAlign: "center" }}
-										className={`wi ${determineWeatherIcon(
-											city.currently.icon
-										)}`}
-									/>
-									{city.currently.summary}
+							<Title className="featuredTitle">{city.name}</Title>
+							<div className="featuredContent">
+								<div className="left">
+									<div className="featuredIcon">
+										<i
+											style={{ fontSize: "2.5rem", textAlign: "center" }}
+											className={`wi ${determineWeatherIcon(
+												city.currently.icon
+											)}`}
+										/>
+									</div>
+									<div>{city.currently.summary}</div>
+									<div>
+										{format(
+											returnLocalDateTime(new Date(), city.timezone),
+											"dddd, MM/YYYY"
+										)}
+										<br />{" "}
+										{format(
+											returnLocalDateTime(new Date(), city.timezone),
+											"h:mm a"
+										)}
+									</div>
 								</div>
-								<div>
-									{format(
-										returnLocalDateTime(new Date(), city.timezone),
-										"dddd, MM/YYYY"
-									)}
-									<br />{" "}
-									{format(
-										returnLocalDateTime(new Date(), city.timezone),
-										"h:mm a"
-									)}
-								</div>
+								<WeatherIndicator>
+									<div className="high_low">
+										{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
+									</div>
+									<div className="currentTemp">{Math.round(temperature)}</div>
+									<div className="feelsLike">
+										Feels like {Math.round(apparentTemperature)}
+									</div>
+								</WeatherIndicator>
 							</div>
-							<WeatherIndicator>
-								<div className="high_low">
-									{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
-								</div>
-								<div className="currentTemp">{Math.round(temperature)}</div>
-								<div className="feelsLike">
-									Feels like {Math.round(apparentTemperature)}
-								</div>
-							</WeatherIndicator>
 						</Card>
 					);
 				})}

@@ -24,10 +24,29 @@
 	display: grid;
 	grid-template-rows: 40px 1fr;
 }
-
 .daily {
 	display: grid;
 	grid-template-rows: 30px 1fr;
+}
+
+@media (max-width: 600px) {
+	.detailedWeather {
+		width: 90%;
+	}
+
+	.daily {
+		grid-template-rows: 50px 1fr;
+	}
+
+	.dailyRecap {
+		grid-template-rows: 1fr 1fr;
+		grid-template-columns: 25% 25% 25% 25%;
+		grid-gap: 0;
+	}
+
+	.dailySummary {
+		text-align: center;
+	}
 }
 
 .dailySummary {

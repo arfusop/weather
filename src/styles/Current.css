@@ -19,6 +19,8 @@
 		max-width: 100vw;
 		grid-template-rows: 1fr 1fr;
 		grid-template-columns: 1fr;
+		align-items: center;
+		justify-content: center;
 	}
 }
 

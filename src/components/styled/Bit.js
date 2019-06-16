@@ -11,6 +11,10 @@ const Bit = styled.div`
 	/* max-width: 80px;
 	width: 70px; */
 	border-right: 1px solid black;
+
+	@media (max-width:600px) {
+		border-bottom: 1px solid black;
+	}
 `;
 
 export default Bit;

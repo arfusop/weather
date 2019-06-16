@@ -48,19 +48,13 @@ body,
 .weatherData {
 	width: auto;
 	display: grid;
-	/* grid-template-rows: 0.5fr 1fr; */
-	/* grid-template-rows: 1.5fr 1fr; */
 	grid-template-rows: 1fr 1fr;
 }
 
-.left {
-	height: 100%;
-	display: grid;
-	grid-template-rows: 1fr 1fr 1fr;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
+@media (max-width: 600px) {
+	.weatherData {
+		grid-template-rows: 1fr;
+	}
 }
 
 .footer {
