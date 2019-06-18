@@ -10,9 +10,11 @@ const Input = styled.input`
 	border-bottom-left-radius: 5px; */
 	border-radius: 5px;
 	outline: none;
+	font-weight: bold;
 
 	::placeholder {
 		color: #757575;
+		font-weight: bold;
 	}
 `;
 

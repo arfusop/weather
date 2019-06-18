@@ -9,7 +9,7 @@ import Loader from "./components/Loader";
 import Grid from "./components/styled/Grid";
 
 import Title from "./components/styled/Title";
-import { returnFeaturedCities } from "./utils/utilities";
+import { returnFeaturedCities, currentTheme } from "./utils/utilities";
 
 export default class App extends Component {
 	state = {
@@ -18,10 +18,12 @@ export default class App extends Component {
 		lat: 0,
 		long: 0,
 		requesting: false,
-		featured: []
+		featured: [],
+		theme: {}
 	};
 
 	componentDidMount = async () => {
+		const theme = currentTheme(0);
 		const cities = returnFeaturedCities();
 		// make api calls for each of the 3 returning cities
 		let featuredFirst;
@@ -65,7 +67,8 @@ export default class App extends Component {
 
 			this.setState({
 				featured: [featuredFirst, featuredSecond, featuredThird],
-				requesting: false
+				requesting: false,
+				theme
 			});
 		} catch (error) {
 			console.log(error);
@@ -115,7 +118,7 @@ export default class App extends Component {
 	};
 
 	render() {
-		const { data, featured, location, requesting } = this.state;
+		const { data, featured, location, requesting, theme } = this.state;
 		const { alerts, currently, daily, hourly } = data;
 		const formProps = {
 			location,
@@ -133,10 +136,6 @@ export default class App extends Component {
 
 		const dailyProps = {
 			daily
-		};
-
-		const theme = {
-			titleFont: '24px',
 		};
 
 		return (
@@ -171,7 +170,7 @@ export default class App extends Component {
 					<div className="footer">
 						<div className="links">
 							<a
-							className="footerLink"
+								className="footerLink"
 								href="https://github.com/arfusop"
 								target="_blank"
 								rel="noopener noreferrer"
@@ -179,7 +178,7 @@ export default class App extends Component {
 								<i className="footerIcon fab fa-github-square" />
 							</a>
 							<a
-							className="footerLink"
+								className="footerLink"
 								href="https://www.linkedin.com/in/phil-arfuso"
 								target="_blank"
 								rel="noopener noreferrer"

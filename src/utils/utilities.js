@@ -228,3 +228,43 @@ export const returnLocalDateTime = (date, location) => {
 	// so 12:00 in Toronto is 17:00 UTC
 	return new Date(date.getTime() + diff);
 };
+
+export const determineTempBorderColor = temp => {
+	let borderColor;
+
+	if (temp > 85) {
+		// red: > 85
+		borderColor = "red";
+	}
+	if (temp > 70 && temp <= 85) {
+		// orange: > 70 && <= 85
+		borderColor = "orange";
+	}
+	if (temp > 55 && temp <= 70) {
+		// yellow: > 55 && <= 70
+		borderColor = "yellow";
+	}
+	if (temp > 35 && temp <= 55) {
+		// blue: > 35 && <= 55
+		borderColor = "blue";
+	}
+	if (temp <= 35) {
+		// teal: <= 35
+		borderColor = "teal";
+	}
+
+	return borderColor;
+};
+
+export const currentTheme = index => {
+	const themes = [
+		{
+			cardBg: "#303036",
+			cardBorder: "ff8811",
+			cardFont: "#fff",
+			titleFont: '24px',
+		}
+	];
+
+	return themes[index];
+}

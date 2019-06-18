@@ -2,7 +2,10 @@ import styled from "@emotion/styled";
 
 const Card = styled.div`
 	padding: ${props => props.padding};
-	border: 1px solid black;
+	/* border: 1px solid black; */
+	border: 1px solid ${props => props.theme.cardBorder};
+	background-color: ${props => props.theme.cardBg};
+	color: ${props => props.theme.cardFont};
 	border-radius: 5px;
 	height: ${props => props.height};
 	max-height: ${props => props.height};

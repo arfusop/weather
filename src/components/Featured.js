@@ -3,7 +3,8 @@ import Card from "./styled/Card";
 import { format } from "date-fns";
 import {
 	determineWeatherIcon,
-	returnLocalDateTime
+	returnLocalDateTime,
+	determineTempBorderColor
 } from "../utils/utilities.js";
 import WeatherIndicator from "./styled/WeatherIndicator";
 import Title from "./styled/Title";
@@ -16,8 +17,9 @@ const Featured = featured => {
 			<div className="featuredCities">
 				{featured.featured.map(city => {
 					const { apparentTemperature, temperature } = city.currently;
-
 					const { temperatureHigh, temperatureLow } = city.daily.data[0];
+
+					const borderColor = determineTempBorderColor(Math.round(temperature));
 					return (
 						<Card padding="10px" height="220px" className="featuredCityCard">
 							<Title className="featuredTitle">{city.name}</Title>
@@ -44,7 +46,7 @@ const Featured = featured => {
 										)}
 									</div>
 								</div>
-								<WeatherIndicator>
+								<WeatherIndicator borderColor={borderColor}>
 									<div className="high_low">
 										{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
 									</div>

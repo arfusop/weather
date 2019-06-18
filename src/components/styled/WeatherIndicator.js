@@ -4,7 +4,7 @@ const WeatherIndicator = styled.div`
 	/* circle styles */
 	width: 140px;
 	height: 140px;
-	border: 1px solid #222;
+	border: 2px solid ${props => props.borderColor};
 	border-radius: 50%;
 
 	/* become a flex container */
