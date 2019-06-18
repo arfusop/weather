@@ -10,6 +10,10 @@ const Input = styled.input`
 	border-bottom-left-radius: 5px; */
 	border-radius: 5px;
 	outline: none;
+
+	::placeholder {
+		color: #757575;
+	}
 `;
 
 export default Input;
