@@ -27,7 +27,7 @@ const Featured = featured => {
 								<div className="left">
 									<div className="featuredIcon">
 										<i
-											style={{ fontSize: "2.5rem", textAlign: "center" }}
+											style={{ fontSize: "2.5rem", textAlign: "center", color: borderColor }}
 											className={`wi ${determineWeatherIcon(
 												city.currently.icon
 											)}`}

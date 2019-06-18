@@ -234,23 +234,23 @@ export const determineTempBorderColor = temp => {
 
 	if (temp > 85) {
 		// red: > 85
-		borderColor = "red";
+		borderColor = "indianred";
 	}
 	if (temp > 70 && temp <= 85) {
 		// orange: > 70 && <= 85
-		borderColor = "orange";
+		borderColor = "tomato";
 	}
 	if (temp > 55 && temp <= 70) {
 		// yellow: > 55 && <= 70
-		borderColor = "yellow";
+		borderColor = "greenyellow";
 	}
 	if (temp > 35 && temp <= 55) {
 		// blue: > 35 && <= 55
-		borderColor = "blue";
+		borderColor = "royalblue";
 	}
 	if (temp <= 35) {
 		// teal: <= 35
-		borderColor = "teal";
+		borderColor = "lightsteelblue";
 	}
 
 	return borderColor;
@@ -259,8 +259,9 @@ export const determineTempBorderColor = temp => {
 export const currentTheme = index => {
 	const themes = [
 		{
+			appBg: "lightgrey",
 			cardBg: "#303036",
-			cardBorder: "ff8811",
+			cardBorder: "2px solid #ff8811",
 			cardFont: "#fff",
 			titleFont: '24px',
 		}
