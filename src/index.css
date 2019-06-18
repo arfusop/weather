@@ -27,6 +27,7 @@ body,
 	width: 90%;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 }
 
 .submitBtn {
@@ -43,6 +44,9 @@ body,
 	position: absolute;
 	right: 5%;
 	color: #757575;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .submitBtn:hover {
