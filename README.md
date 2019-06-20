@@ -14,7 +14,7 @@ I am using netlify to deploy this site. When you think you're done and ready to 
 
 - [Google Places](https://developers.google.com/places/web-service/autocomplete?utm_source=google&utm_medium=cpc&utm_campaign=FY18-Q2-global-demandgen-paidsearchonnetworkhouseads-cs-maps_contactsal_saf&utm_content=text-ad-none-none-DEV_c-CRE_315916117628-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+~+Google+Maps+Place+Autocomplete-KWID_43700039136946147-kwd-532573556781-userloc_9003471&utm_term=KW_google%20place%20autocomplete-ST_google+place+autocomplete&gclid=CIm5gLuB9-ICFYaVswodvCQNKw) - The location/coordinate API used to provide data to pinpoint weather
 - [Dark Sky](https://darksky.net/dev) - Weather API
-- [Emotion Styled Components](https://emotion.sh/docs/introduction) - Used to generate RSS Feeds
+- [Emotion Styled Components](https://emotion.sh/docs/introduction) - Styled components library
 
 ## Author
 
