@@ -4,7 +4,7 @@ import { format } from "date-fns";
 import {
 	determineWeatherIcon,
 	returnLocalDateTime,
-	determineTempBorderColor
+	determineTempColor
 } from "../utils/utilities.js";
 import WeatherIndicator from "./styled/WeatherIndicator";
 import Title from "./styled/Title";
@@ -19,15 +19,24 @@ const Featured = featured => {
 					const { apparentTemperature, temperature } = city.currently;
 					const { temperatureHigh, temperatureLow } = city.daily.data[0];
 
-					const borderColor = determineTempBorderColor(Math.round(temperature));
+					const borderColor = determineTempColor(Math.round(temperature));
 					return (
-						<Card padding="10px" height="220px" className="featuredCityCard">
+						<Card
+							padding="10px"
+							height="220px"
+							className="featuredCityCard"
+							border={`2px solid ${borderColor}`}
+						>
 							<Title className="featuredTitle">{city.name}</Title>
 							<div className="featuredContent">
 								<div className="left">
 									<div className="featuredIcon">
 										<i
-											style={{ fontSize: "2.5rem", textAlign: "center", color: borderColor }}
+											style={{
+												fontSize: "2.5rem",
+												textAlign: "center",
+												color: borderColor
+											}}
 											className={`wi ${determineWeatherIcon(
 												city.currently.icon
 											)}`}

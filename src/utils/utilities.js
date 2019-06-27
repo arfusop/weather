@@ -229,7 +229,7 @@ export const returnLocalDateTime = (date, location) => {
 	return new Date(date.getTime() + diff);
 };
 
-export const determineTempBorderColor = temp => {
+export const determineTempColor = temp => {
 	let borderColor;
 
 	if (temp > 85) {
@@ -259,9 +259,9 @@ export const determineTempBorderColor = temp => {
 export const currentTheme = index => {
 	const themes = [
 		{
-			appBg: "lightgrey",
+			// appBg: "lightgrey",
 			cardBg: "#303036",
-			cardBorder: "2px solid #ff8811",
+			// cardBorder: "2px solid #ff8811",
 			cardFont: "#fff",
 			titleFont: '24px',
 		}

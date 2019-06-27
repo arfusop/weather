@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ThemeProvider } from "emotion-theming";
+import { ThemeProvider, withTheme } from "emotion-theming";
 import Form from "./components/Form";
 import CurrentWeather from "./components/CurrentWeather";
 import DailyWeather from "./components/DailyWeather";
