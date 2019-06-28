@@ -10,24 +10,34 @@ import WeatherIndicator from "./styled/WeatherIndicator";
 import Title from "./styled/Title";
 import Degrees from "./Degrees";
 
-const Featured = featured => {
+const Featured = ({ featured, handleClick }) => {
 	return (
 		<div className="featuredCitiesContainer">
 			<Title>Featured</Title>
 			<div className="featuredCities">
-				{featured.featured.map(city => {
+				{featured.map(city => {
 					const { apparentTemperature, temperature } = city.currently;
 					const { temperatureHigh, temperatureLow } = city.daily.data[0];
 
 					const borderColor = determineTempColor(Math.round(temperature));
 					return (
-						<Card padding="10px" height="220px" className="featuredCityCard" border={`2px solid ${borderColor}`}>
+						<Card
+							padding="10px"
+							height="220px"
+							className="featuredCityCard"
+							border={`2px solid ${borderColor}`}
+							onClick={() => handleClick(city)}
+						>
 							<Title className="featuredTitle">{city.name}</Title>
 							<div className="featuredContent">
 								<div className="left">
 									<div className="featuredIcon">
 										<i
-											style={{ fontSize: "2.5rem", textAlign: "center", color: borderColor }}
+											style={{
+												fontSize: "2.5rem",
+												textAlign: "center",
+												color: borderColor
+											}}
 											className={`wi ${determineWeatherIcon(
 												city.currently.icon
 											)}`}

@@ -14,7 +14,7 @@ const DailyWeather = ({ currentTemp, daily }) => {
 		<React.Fragment>
 			<div
 				className="dailySummary"
-				css={{ border: `1px solid ${determineTempColor(currentTemp)}` }}
+				css={{ borderBottom: `1px solid ${determineTempColor(currentTemp)}` }}
 			>
 				<div>{daily.summary}</div>
 			</div>

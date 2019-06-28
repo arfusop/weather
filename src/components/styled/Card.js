@@ -8,6 +8,7 @@ const Card = styled.div`
 	border-radius: 5px;
 	height: ${props => props.height};
 	max-height: ${props => props.height};
+	cursor: pointer;
 
 	display: grid;
 	grid-template-rows: 40px 1fr;

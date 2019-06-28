@@ -110,6 +110,7 @@ export default class App extends Component {
 			response = await parse.text();
 			response = JSON.parse(response);
 
+			console.log(response);
 			setTimeout(() => {
 				this.setState({
 					data: response,
@@ -119,6 +120,13 @@ export default class App extends Component {
 		} catch (error) {
 			console.log(error);
 		}
+	};
+
+	handleFeaturedClick = data => {
+		this.setState(
+			{ lat: data.latitude, long: data.longitude },
+			() => this.submitWeatherSearch()
+		);
 	};
 
 	render() {
@@ -141,6 +149,11 @@ export default class App extends Component {
 		const dailyProps = {
 			currentTemp: currently && currently.temperature,
 			daily
+		};
+
+		const featuredProps = {
+			featured,
+			handleClick: this.handleFeaturedClick
 		};
 
 		return (
@@ -183,7 +196,7 @@ export default class App extends Component {
 								<Alert alert={alerts[0]} />
 							</div>
 						)}
-						{featured.length ? <Featured featured={featured} /> : null}
+						{featured.length ? <Featured {...featuredProps} /> : null}
 					</div>
 					<div className="footer">
 						<div className="links">
