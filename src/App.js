@@ -110,7 +110,6 @@ export default class App extends Component {
 			response = await parse.text();
 			response = JSON.parse(response);
 
-			console.log(response);
 			setTimeout(() => {
 				this.setState({
 					data: response,
