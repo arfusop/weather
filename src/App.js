@@ -139,6 +139,7 @@ export default class App extends Component {
 		};
 
 		const dailyProps = {
+			currentTemp: currently && currently.temperature,
 			daily
 		};
 

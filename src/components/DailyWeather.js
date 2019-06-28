@@ -2,14 +2,20 @@
 import React from "react";
 import { jsx } from "@emotion/core";
 import { withTheme } from "emotion-theming";
-import { determineWeatherIcon, determineTempColor } from "../utils/utilities.js";
+import {
+	determineWeatherIcon,
+	determineTempColor
+} from "../utils/utilities.js";
 import { format, addDays } from "date-fns";
 import Bit from "./styled/Bit";
 
-const DailyWeather = ({ daily }) => {
+const DailyWeather = ({ currentTemp, daily }) => {
 	return (
 		<React.Fragment>
-			<div className="dailySummary">
+			<div
+				className="dailySummary"
+				css={{ border: `1px solid ${determineTempColor(currentTemp)}` }}
+			>
 				<div>{daily.summary}</div>
 			</div>
 			<div className="dailyRecap">
@@ -21,7 +27,9 @@ const DailyWeather = ({ daily }) => {
 							key={Math.random()}
 							style={{
 								borderRight:
-									index + 1 === daily.data.length ? "none" : "1px solid black"
+									index + 1 === daily.data.length
+										? "none"
+										: `1px solid ${determineTempColor(currentTemp)}`
 							}}
 						>
 							<div className="dailyDate">{format(newDate, "ddd")}</div>
