@@ -1,4 +1,7 @@
+/** @jsx jsx */
 import React from "react";
+import { jsx } from "@emotion/core";
+import { withTheme } from "emotion-theming";
 import { determineWeatherIcon } from "../utils/utilities.js";
 import { format, addDays } from "date-fns";
 import Bit from "./styled/Bit";
@@ -40,4 +43,4 @@ const DailyWeather = ({ daily }) => {
 	);
 };
 
-export default DailyWeather;
+export default withTheme(DailyWeather);

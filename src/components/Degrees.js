@@ -1,16 +1,17 @@
 import React from "react";
 
-const Degrees = ({ value, unit }) => {
+const Degrees = ({ value, unit, color }) => {
 	return (
 		<div className="degreesContainer">
-			<div>{Math.round(value)}</div>
+			<div style={{ color }}>{Math.round(value)}</div>
 			<div
 				style={{
 					fontSize: 10,
 					display: "grid",
 					gridTemplateColumns: "1fr 1fr",
 					gridGap: 2,
-					alignContent: "center"
+					alignContent: "center",
+					color
 				}}
 			>
 				<i style={{ fontSize: 6 }} className="far fa-circle" /> {unit}

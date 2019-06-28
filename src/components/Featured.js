@@ -21,22 +21,13 @@ const Featured = featured => {
 
 					const borderColor = determineTempColor(Math.round(temperature));
 					return (
-						<Card
-							padding="10px"
-							height="220px"
-							className="featuredCityCard"
-							border={`2px solid ${borderColor}`}
-						>
+						<Card padding="10px" height="220px" className="featuredCityCard" border={`2px solid ${borderColor}`}>
 							<Title className="featuredTitle">{city.name}</Title>
 							<div className="featuredContent">
 								<div className="left">
 									<div className="featuredIcon">
 										<i
-											style={{
-												fontSize: "2.5rem",
-												textAlign: "center",
-												color: borderColor
-											}}
+											style={{ fontSize: "2.5rem", textAlign: "center", color: borderColor }}
 											className={`wi ${determineWeatherIcon(
 												city.currently.icon
 											)}`}
@@ -60,7 +51,7 @@ const Featured = featured => {
 										{Math.round(temperatureHigh)} | {Math.round(temperatureLow)}
 									</div>
 									<div className="currentTemp">
-										<Degrees value={temperature} unit="F" />
+										<Degrees color={borderColor} value={temperature} unit="F" />
 									</div>
 									<div className="feelsLike">
 										Feels like {Math.round(apparentTemperature)}
