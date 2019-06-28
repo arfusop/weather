@@ -78,6 +78,12 @@
 	align-items: center;
 }
 
+@media (max-width: 600px) {
+	.currentWeatherIconContainer {
+		font-size: 4rem;
+	}
+}
+
 .temp {
 	font-size: 35px;
 	display: flex;

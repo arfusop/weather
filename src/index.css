@@ -74,6 +74,7 @@ body,
 	grid-template-rows: 40px 20px;
 	justify-items: center;
 	align-items: center;
+	margin-top: 10px;
 }
 
 .links {

@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./styled/Card";
-import { format } from "date-fns";
+import { format, parse } from "date-fns";
 import {
 	determineWeatherIcon,
 	returnLocalDateTime,
@@ -20,6 +20,17 @@ const Featured = ({ featured, handleClick }) => {
 					const { temperatureHigh, temperatureLow } = city.daily.data[0];
 
 					const borderColor = determineTempColor(Math.round(temperature));
+					const currentDate = parse(
+						format(
+							returnLocalDateTime(new Date(), city.timezone),
+							"dddd, MM/YYYY"
+						)
+					);
+					const currentTime = parse(
+						format(returnLocalDateTime(new Date(), city.timezone), "h:mm a")
+					);
+					// console.log(currentDate);
+					// console.log(currentTime);
 					return (
 						<Card
 							padding="10px"

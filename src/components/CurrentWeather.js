@@ -30,11 +30,30 @@ const CurrentWeather = ({ currently, location, timezone, hourly, theme }) => {
 						<Degrees color={tempColor} value={currently.temperature} unit="F" />
 					</div>
 					<div className="otherInfo">
-						<span>
-							Precipitation: {Math.round(currently.precipProbability * 100)}%
-						</span>
-						<span>Humidity: {Math.round(currently.humidity * 100)}%</span>
-						<span>Wind: {Math.round(currently.windGust)} mph</span>
+						<div>
+							<i
+								css={{ color: tempColor, fontSize: 16 }}
+								className={`wi wi-raindrops`}
+							/>{" "}
+							<span>{Math.round(currently.precipProbability * 100)}%</span>
+						</div>
+						<div>
+							<i
+								css={{ color: tempColor, fontSize: 16 }}
+								className={`wi 
+							wi-humidity`}
+							/>{" "}
+							<span>{Math.round(currently.humidity * 100)}%</span>
+						</div>
+						<div>
+							{" "}
+							<i
+								css={{ color: tempColor, fontSize: 16 }}
+								className={`wi 
+						wi-windy`}
+							/>{" "}
+							<span>{Math.round(currently.windGust)} mph</span>
+						</div>
 					</div>
 				</div>
 				<div className="currentWeatherRemainingData">
