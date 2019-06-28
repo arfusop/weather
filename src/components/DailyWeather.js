@@ -2,7 +2,7 @@
 import React from "react";
 import { jsx } from "@emotion/core";
 import { withTheme } from "emotion-theming";
-import { determineWeatherIcon } from "../utils/utilities.js";
+import { determineWeatherIcon, determineTempColor } from "../utils/utilities.js";
 import { format, addDays } from "date-fns";
 import Bit from "./styled/Bit";
 
@@ -28,6 +28,8 @@ const DailyWeather = ({ daily }) => {
 							<div key={Math.random()} className="dailyIconContainer">
 								<i
 									key={Math.random()}
+									// css={{ color: determineTempColor((day.temperatureHigh + day.temperatureLow) / 2) }}
+									css={{ color: determineTempColor(day.temperatureHigh) }}
 									className={`wi ${determineWeatherIcon(day.icon)} dailyIcon`}
 								/>
 							</div>

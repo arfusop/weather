@@ -9,7 +9,11 @@ import Loader from "./components/Loader";
 import Grid from "./components/styled/Grid";
 
 import Title from "./components/styled/Title";
-import { returnFeaturedCities, currentTheme } from "./utils/utilities";
+import {
+	returnFeaturedCities,
+	currentTheme,
+	determineTempColor
+} from "./utils/utilities";
 
 export default class App extends Component {
 	state = {
@@ -152,8 +156,21 @@ export default class App extends Component {
 								{currently && <CurrentWeather {...currentWeatherProps} />}
 								<div className="detailedWeather">
 									<Title>Daily</Title>
-									<div className="dataRow">
-										<div className="daily">
+									<div
+										className="dataRow"
+										style={{
+											border: `2px solid ${determineTempColor(
+												currently.temperature
+											)}`
+										}}
+									>
+										<div
+											className="daily"
+											style={{
+												backgroundColor: theme.cardBg,
+												color: theme.cardFont
+											}}
+										>
 											<DailyWeather {...dailyProps} />
 										</div>
 									</div>
