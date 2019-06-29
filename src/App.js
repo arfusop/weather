@@ -122,8 +122,9 @@ export default class App extends Component {
 	};
 
 	handleFeaturedClick = data => {
+		console.log(data);
 		this.setState(
-			{ lat: data.latitude, long: data.longitude },
+			{ lat: data.latitude, long: data.longitude, location: data.name },
 			() => this.submitWeatherSearch()
 		);
 	};

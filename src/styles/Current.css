@@ -47,9 +47,8 @@
 }
 
 .otherInfo {
-	display: grid;
-	grid-gap: 5px;
-	justify-content: center;
+	display: flex;
+	justify-content: space-around;
 	align-items: center;
 }
 
@@ -72,7 +71,7 @@
 }
 
 .currentWeatherIconContainer {
-	font-size: 6rem;
+	font-size: 5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
