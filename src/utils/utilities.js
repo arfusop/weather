@@ -263,7 +263,7 @@ export const currentTheme = index => {
 			cardBg: "#303036",
 			// cardBorder: "2px solid #ff8811",
 			cardFont: "#fff",
-			titleFont: '24px',
+			// titleFont: '24px',
 		}
 	];
 

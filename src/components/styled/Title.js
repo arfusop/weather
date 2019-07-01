@@ -5,7 +5,7 @@ const Title = styled.div`
 	display: flex;
 	justify-content: center;
   align-items: center;
-  font-size: ${props => props.theme.titleFont};
+  font-size: ${props => props.titleFont ? props.titleFont : '24px'};
   padding: 10px 0;
   font-weight: bold;
 `;

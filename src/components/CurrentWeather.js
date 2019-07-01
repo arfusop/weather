@@ -28,6 +28,12 @@ const CurrentWeather = ({ currently, location, timezone, hourly, theme }) => {
 				<div className="currentWeatherInfo">
 					<div className="temp">
 						<Degrees color={tempColor} value={currently.temperature} unit="F" />
+						<div className="currentWeatherIconContainer">
+							<i
+								css={{ color: tempColor }}
+								className={`wi ${determineWeatherIcon(currently.icon)}`}
+							/>
+						</div>
 					</div>
 					<div className="otherInfo">
 						<div>
@@ -61,28 +67,47 @@ const CurrentWeather = ({ currently, location, timezone, hourly, theme }) => {
 						style={{
 							display: "grid",
 							gridTemplateRows: "0.5fr 1fr",
+							gridTemplateColumns: "1fr",
 							justifyContent: "flex-start"
 						}}
 					>
-						<div className="currentlyTop">
+						<div
+							className="currentlyTop"
+							css={{
+								display: "flex",
+								justifyContent: "center"
+							}}
+						>
 							<div
-								style={{
-									display: "grid",
-									gridGap: "5px 10px",
-									alignItems: "center"
-									// justifyContent: "center"
+								css={{
+									display: "flex",
+									justifyContent: "center"
 								}}
 							>
-								<div className="location">
-									<span>{location}</span>
+								<div css={{ padding: 5 }}>
+									<i
+										css={{ fontSize: 34, color: tempColor }}
+										className="fas fa-map-pin"
+									/>
 								</div>
-								<div className="currentTime">
-									<span>
-										{format(
-											returnLocalDateTime(new Date(), timezone),
-											"MM/DD/YYYY hh:mm A"
-										)}
-									</span>
+								<div
+									style={{
+										display: "flex",
+										flexDirection: "column",
+										padding: 5
+									}}
+								>
+									<div className="location">
+										<span>{location}</span>
+									</div>
+									<div className="currentTime">
+										<span>
+											{format(
+												returnLocalDateTime(new Date(), timezone),
+												"MM/DD/YYYY hh:mm A"
+											)}
+										</span>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -91,12 +116,6 @@ const CurrentWeather = ({ currently, location, timezone, hourly, theme }) => {
 								<span>{hourly.summary}</span>
 							</div>
 						</div>
-					</div>
-					<div className="currentWeatherIconContainer">
-						<i
-							css={{ color: tempColor }}
-							className={`wi ${determineWeatherIcon(currently.icon)}`}
-						/>
 					</div>
 				</div>
 			</div>

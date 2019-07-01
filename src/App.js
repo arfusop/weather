@@ -160,7 +160,9 @@ export default class App extends Component {
 			<ThemeProvider theme={theme}>
 				<Grid className="appGrid">
 					<div className="form">
-						<Title className="AppTitle">Just Another Weather App</Title>
+						<Title className="AppTitle" titleFont='30px'>
+							Just Another Weather App
+						</Title>
 						<Form {...formProps} />
 					</div>
 					<div className="weatherData">
