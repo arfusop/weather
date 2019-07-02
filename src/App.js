@@ -27,6 +27,12 @@ export default class App extends Component {
 	};
 
 	componentDidMount = async () => {
+		document.addEventListener("keypress", e => {
+			if (e.key === 'Enter') {
+				
+			}
+		});
+
 		const theme = currentTheme(0);
 		const cities = returnFeaturedCities();
 		// make api calls for each of the 3 returning cities
@@ -160,7 +166,7 @@ export default class App extends Component {
 			<ThemeProvider theme={theme}>
 				<Grid className="appGrid">
 					<div className="form">
-						<Title className="AppTitle" titleFont='30px'>
+						<Title className="AppTitle" titleFont="30px">
 							Just Another Weather App
 						</Title>
 						<Form {...formProps} />

@@ -36,25 +36,43 @@ const CurrentWeather = ({ currently, location, timezone, hourly, theme }) => {
 						</div>
 					</div>
 					<div className="otherInfo">
-						<div>
+						<div
+							css={{
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center"
+							}}
+						>
 							<i
-								css={{ color: tempColor, fontSize: 16 }}
+								css={{ color: tempColor, fontSize: 35, marginRight: 5 }}
 								className={`wi wi-raindrops`}
 							/>{" "}
 							<span>{Math.round(currently.precipProbability * 100)}%</span>
 						</div>
-						<div>
+						<div
+							css={{
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center"
+							}}
+						>
 							<i
-								css={{ color: tempColor, fontSize: 16 }}
+								css={{ color: tempColor, fontSize: 24, marginRight: 5 }}
 								className={`wi 
 							wi-humidity`}
 							/>{" "}
 							<span>{Math.round(currently.humidity * 100)}%</span>
 						</div>
-						<div>
+						<div
+							css={{
+								display: "flex",
+								justifyContent: "center",
+								alignItems: "center"
+							}}
+						>
 							{" "}
 							<i
-								css={{ color: tempColor, fontSize: 16 }}
+								css={{ color: tempColor, fontSize: 24, marginRight: 5 }}
 								className={`wi 
 						wi-windy`}
 							/>{" "}
