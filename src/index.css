@@ -84,6 +84,12 @@ body,
 	width: 100%;
 }
 
+@media (max-width: 500px) {
+	.footer {
+		position: fixed;
+	}
+}
+
 .links {
 	display: grid;
 	grid-template-rows: 1fr;
