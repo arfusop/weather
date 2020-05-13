@@ -1,7 +1,9 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { initialState, reducer } from '../helpers/state/reducer'
 import { LOCATION, LOADING } from '../helpers/state/types'
+import AutoComplete from './autocomplete'
 import { SunLoader } from './loader'
+import Search from './search'
 
 const App = () => {
     const [mounted, setMounted] = useState(false)
@@ -59,6 +61,8 @@ const App = () => {
         <div>
             <div>The new non shitty weather app</div>
             {loading ? <SunLoader /> : null}
+            <AutoComplete />
+            <Search />
         </div>
     )
 }
