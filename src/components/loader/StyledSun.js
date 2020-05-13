@@ -129,7 +129,7 @@ const StyledSun = styled.section`
     .loaderContainer {
         height: 200px;
         width: 160px;
-        padding: 10px;
+        padding: 5%;
         background-color: transparent;
         z-index: 500;
     }
