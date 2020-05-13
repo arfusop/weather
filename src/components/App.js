@@ -26,10 +26,10 @@ const App = () => {
                 // example for my location API call:
                 // https://api.darksky.net/forecast/1bd704b5c1758006d72f10d0e9e86dc5/40.8199635,-73.9832809
 
-                dispatch({
-                    type: LOADING,
-                    payload: { label: LOADING, data: false }
-                })
+                // dispatch({
+                //     type: LOADING,
+                //     payload: { label: LOADING, data: false }
+                // })
             }
             const handlePositionError = () => {
                 dispatch({

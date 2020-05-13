@@ -11,8 +11,8 @@ const StyledSun = styled.section`
     width: 25%;
     padding-bottom: 25%;
     background-color: #12a4dc;
-    border-radius: 2%;
-    border: 1px solid black;
+    border-radius: 1%;
+    box-shadow: 1px 1px 20px grey;
 
     .preloader-top {
         position: absolute;
@@ -129,7 +129,7 @@ const StyledSun = styled.section`
     .loaderContainer {
         height: 200px;
         width: 160px;
-        padding: 10px;
+        padding: 5%;
         background-color: transparent;
         z-index: 500;
     }
