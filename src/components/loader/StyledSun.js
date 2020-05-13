@@ -11,8 +11,8 @@ const StyledSun = styled.section`
     width: 25%;
     padding-bottom: 25%;
     background-color: #12a4dc;
-    border-radius: 2%;
-    border: 1px solid black;
+    border-radius: 1%;
+    box-shadow: 0px 0px 9px 2px rgba(0, 0, 0, 0.75);
 
     .preloader-top {
         position: absolute;
