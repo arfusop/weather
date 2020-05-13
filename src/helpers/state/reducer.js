@@ -1,10 +1,11 @@
-import { LOCATION } from './types'
+import { LOCATION, LOADING } from './types'
 
 export const initialState = {
     location: {
         lat: 0,
         long: 0
-    }
+    },
+    loading: false
 }
 
 export const reducer = (state, action) => {
@@ -21,9 +22,14 @@ export const reducer = (state, action) => {
                     long
                 }
             }
-
+            case LOADING: {
+                return {
+                    ...state,
+                    [label]: data
+                }
+            }
         default:
-            break
+            return { ...state }
     }
     // return {
     //     ...state,

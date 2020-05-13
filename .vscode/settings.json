@@ -1,0 +1,22 @@
+{
+    "workbench.colorTheme": "Night Owl",
+    "workbench.iconTheme": "vscode-icons",
+    "editor.fontFamily": "Dank Mono, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 14,
+    "debug.console.fontSize": 14,
+    "terminal.integrated.fontSize": 14,
+    "editor.wordWrap": "on",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "emmet.triggerExpansionOnTab": true,
+    {
+        "emmet.includeLanguages": {
+            "javascript": "javascriptreact"
+        }
+    }
+}
