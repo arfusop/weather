@@ -32,13 +32,18 @@ const StyledMoon = styled.section`
         }
     }
 
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 25%;
     height: 181px;
     background-color: #000d1a;
-    margin: 0 auto;
     overflow: hidden;
     border-radius: 1%;
     box-shadow: 1px 1px 20px grey;
@@ -81,7 +86,7 @@ const StyledMoon = styled.section`
         background-color: #000d1a;
         border-radius: 50%;
         animation-name: eclipse;
-        animation-duration: 7s;
+        animation-duration: 3s;
         animation-timing-function: linear;
         animation-delay: 1s;
         animation-iteration-count: infinite;
@@ -93,25 +98,39 @@ const StyledMoon = styled.section`
         background-color: grey;
     }
 
-    .crater:nth-child(1) {
+    .crater:nth-of-type(1) {
         width: 20px;
         height: 20px;
         top: 20px;
         left: 50px;
     }
 
-    .crater:nth-child(2) {
+    .crater:nth-of-type(2) {
         width: 10px;
         height: 10px;
         top: 40px;
         left: 70px;
     }
 
-    .crater:nth-child(3) {
+    .crater:nth-of-type(3) {
         width: 15px;
         height: 15px;
         top: 50px;
         left: 50px;
+    }
+
+    .crater:nth-of-type(4) {
+        width: 8px;
+        height: 8px;
+        top: 40px;
+        left: 20px;
+    }
+
+    .crater:nth-of-type(5) {
+        width: 13px;
+        height: 13px;
+        top: 60px;
+        left: 20px;
     }
 
     /* media queries */

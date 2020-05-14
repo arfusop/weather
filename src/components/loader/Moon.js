@@ -4,10 +4,12 @@ import StyledMoon from './StyledMoon'
 const Moon = () => {
     return (
         <StyledMoon>
-            <div class="moon">
-                <div class="crater"></div>
-                <div class="crater"></div>
-                <div class="crater"></div>
+            <div className="moon">
+                <div className="crater" />
+                <div className="crater" />
+                <div className="crater" />
+                <div className="crater" />
+                <div className="crater" />
             </div>
         </StyledMoon>
     )
