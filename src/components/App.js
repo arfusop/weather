@@ -4,7 +4,6 @@ import { LOCATION, LOADING, UPDATE_WEATHER } from '../helpers/state/types'
 import { getWeather } from '../helpers/state/actions'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
-import Search from './search'
 
 const App = () => {
     const [mounted, setMounted] = useState(false)
@@ -72,8 +71,7 @@ const App = () => {
         <div>
             <div>The new non shitty weather app</div>
             {loading ? <Loader /> : null}
-            <AutoComplete callback={updateGeolocation} />
-            <Search />
+            <AutoComplete />
         </div>
     )
 }
