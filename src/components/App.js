@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { initialState, reducer } from '../helpers/state/reducer'
 import { LOCATION, LOADING } from '../helpers/state/types'
 import AutoComplete from './autocomplete'
-import { SunLoader } from './loader'
+import Loader from './loader'
 import Search from './search'
 
 const App = () => {
@@ -60,7 +60,7 @@ const App = () => {
     return (
         <div>
             <div>The new non shitty weather app</div>
-            {loading ? <SunLoader /> : null}
+            {loading ? <Loader /> : null}
             <AutoComplete />
             <Search />
         </div>
