@@ -1,10 +1,11 @@
-import { LOCATION, LOADING } from './types'
+import { LOCATION, LOADING, UPDATE_WEATHER } from './types'
 
 export const initialState = {
     location: {
         lat: 0,
         long: 0
     },
+    weather: {},
     loading: false
 }
 
@@ -22,11 +23,16 @@ export const reducer = (state, action) => {
                     long
                 }
             }
-            case LOADING: {
-                return {
-                    ...state,
-                    [label]: data
-                }
+        case LOADING:
+            return {
+                ...state,
+                [label]: data
+            }
+
+        case UPDATE_WEATHER:
+            return {
+                ...state,
+                weather: data
             }
         default:
             return { ...state }

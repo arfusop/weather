@@ -1,9 +1,10 @@
 import React from 'react'
 import Script from 'react-load-script'
+import PropTypes from 'prop-types'
 
 let autocomplete = null
 
-const AutoComplete = () => {
+const AutoComplete = ({ callback }) => {
     const handleScriptLoad = () => {
         console.log('loaded script')
         const options = { types: ['geocode'] }
@@ -19,7 +20,7 @@ const AutoComplete = () => {
             console.log(addressObject)
             if (!addressObject.geometry) return
             const { formatted_address, geometry } = addressObject
-            this.updateGoogleLocationData(
+            callback(
                 formatted_address,
                 geometry.location.lat(),
                 geometry.location.lng()
@@ -29,10 +30,18 @@ const AutoComplete = () => {
 
     return (
         <Script
-            url="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfBb7wMtoqYklIWJzZVv62bWsVvfIfZg0&libraries=places"
+            url="https://maps.googleapis.com/maps/api/js?key=AIzaSyA5OfdpnZUgkR1LpThm7XMIeIJE49O2jZI&libraries=places"
             onLoad={handleScriptLoad}
         />
     )
+}
+
+AutoComplete.propTypes = {
+    callback: PropTypes.func
+}
+
+AutoComplete.defaultProps = {
+    callback: () => null
 }
 
 export default AutoComplete

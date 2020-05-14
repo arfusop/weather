@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { initialState, reducer } from '../helpers/state/reducer'
-import { LOCATION, LOADING } from '../helpers/state/types'
+import { LOCATION, LOADING, UPDATE_WEATHER } from '../helpers/state/types'
+import { getWeather } from '../helpers/state/actions'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
 import Search from './search'
@@ -21,15 +22,19 @@ const App = () => {
                         label: LOCATION
                     }
                 })
-                // 2. Dispatch an action that triggers the weather API call based on users location
+                const getWeatherData = async () => {
+                    const weatherData = await getWeather(latitude, longitude)
 
-                // example for my location API call:
-                // https://api.darksky.net/forecast/1bd704b5c1758006d72f10d0e9e86dc5/40.8199635,-73.9832809
-
-                // dispatch({
-                //     type: LOADING,
-                //     payload: { label: LOADING, data: false }
-                // })
+                    dispatch({
+                        type: LOADING,
+                        payload: { label: LOADING, data: false }
+                    })
+                    dispatch({
+                        type: UPDATE_WEATHER,
+                        payload: { data: weatherData }
+                    })
+                }
+                getWeatherData()
             }
             const handlePositionError = () => {
                 dispatch({
@@ -55,13 +60,19 @@ const App = () => {
         }
     }, [mounted, setMounted])
 
+    const updateGeolocation = (address, lat, long) => {
+        console.log('address: ', address)
+        console.log('lat: ', lat)
+        console.log('long: ', long)
+    }
+
     const { loading } = state
 
     return (
         <div>
             <div>The new non shitty weather app</div>
             {loading ? <Loader /> : null}
-            <AutoComplete />
+            <AutoComplete callback={updateGeolocation} />
             <Search />
         </div>
     )
