@@ -1,21 +1,21 @@
 import styled from '@emotion/styled'
 
 export const StyledSearch = styled.form`
-    body {
-        margin: 5%;
-    }
-
     #react-google-places-autocomplete-input {
         transition: width ${props => props.transitionLength},
             border-radius ${props => props.transitionLength},
             background ${props => props.transitionLength},
             box-shadow ${props => props.transitionLength};
-        width: 40px;
+        /* width: 40px; */
+        width: 300px;
         height: 40px;
-        border-radius: 20px;
+        border-radius: 5px;
+        box-shadow: 1px 1px 5px grey;
         border: none;
         cursor: pointer;
         background: rgb(235, 235, 235);
+        font-size: 1rem;
+
         & + label .searchIcon {
             color: black;
         }
@@ -40,6 +40,7 @@ export const StyledSearch = styled.form`
             width: 300px;
             border-radius: auto;
             background: rgb(235, 235, 235);
+            box-shadow: 1px 1px 5px grey;
             color: black;
             & + label .searchIcon {
                 color: black;
@@ -47,7 +48,7 @@ export const StyledSearch = styled.form`
         }
         &:not(:focus) {
             text-indent: -5000px;
-        } // for more-graceful falling back (:not browsers likely support indent)
+        }
     }
 
     #search-submit {
@@ -57,8 +58,15 @@ export const StyledSearch = styled.form`
 
     .searchIcon {
         position: relative;
-        left: -30px;
+        left: -29px;
+        top: 2px;
         color: white;
         cursor: pointer;
     }
+
+    .suggestions-container {
+        background-color: black;
+    }
 `
+
+export const StyledSuggestions = styled.section``

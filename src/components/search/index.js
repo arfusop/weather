@@ -1,8 +1,8 @@
 import React from 'react'
 import { FaSearch } from 'react-icons/fa'
-import { StyledSearch } from './style'
+import { StyledSearch, StyledSuggestions } from './style'
 
-const Search = ({ ...rest }) => {
+export const Search = ({ ...rest }) => {
     return (
         <StyledSearch transitionLength="0.6s">
             <input id="react-google-places-autocomplete-input" {...rest} />
@@ -14,4 +14,20 @@ const Search = ({ ...rest }) => {
     )
 }
 
-export default Search
+export const Suggestions = ({ active, suggestions, onSelectSuggestion }) => {
+    return (
+        <StyledSuggestions>
+            {suggestions.map((suggestion, index) => {
+                const { description } = suggestion
+                return (
+                    <div
+                        onClick={event =>
+                            onSelectSuggestion(suggestion, event)
+                        }>
+                        {description}
+                    </div>
+                )
+            })}
+        </StyledSuggestions>
+    )
+}
