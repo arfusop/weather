@@ -12,6 +12,7 @@ const App = () => {
     useEffect(() => {
         if (!mounted) {
             const handlePositionSuccess = position => {
+                console.log(position)
                 const { latitude, longitude } = position.coords
 
                 dispatch({
@@ -59,17 +60,16 @@ const App = () => {
         }
     }, [mounted, setMounted])
 
-    const updateGeolocation = (address, lat, long) => {
-        console.log('address: ', address)
-        console.log('lat: ', lat)
-        console.log('long: ', long)
-    }
+    // const updateGeolocation = (address, lat, long) => {
+    //     console.log('address: ', address)
+    //     console.log('lat: ', lat)
+    //     console.log('long: ', long)
+    // }
 
     const { loading } = state
 
     return (
         <div>
-            <div>The new non shitty weather app</div>
             {loading ? <Loader /> : null}
             <AutoComplete />
         </div>
