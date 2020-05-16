@@ -1,11 +1,11 @@
 import React from 'react'
-import { format } from 'date-fns'
+import { getHours } from 'date-fns'
 import Sun from './Sun'
 import Moon from './Moon'
 
 const Loader = () => {
-    const day = format(new Date(), 'a')
-    if (day === 'pm') {
+    const hours = getHours(new Date())
+    if (hours > 18) {
         return <Moon />
     }
     return <Sun />
