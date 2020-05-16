@@ -9,7 +9,7 @@ export const StyledSearch = styled.form`
         /* width: 40px; */
         width: 300px;
         height: 40px;
-        border-radius: 5px;
+        border-radius: 1%;
         box-shadow: 1px 1px 5px grey;
         border: none;
         cursor: pointer;

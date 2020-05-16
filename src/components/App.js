@@ -12,6 +12,7 @@ const App = () => {
     useEffect(() => {
         if (!mounted) {
             const handlePositionSuccess = position => {
+                console.log(position)
                 const { latitude, longitude } = position.coords
 
                 dispatch({
