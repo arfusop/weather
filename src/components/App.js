@@ -1,9 +1,16 @@
 import React, { useEffect, useReducer, useState } from 'react'
+import { getHours } from 'date-fns'
 import { initialState, reducer } from '../helpers/state/reducer'
-import { LOCATION, LOADING, UPDATE_WEATHER } from '../helpers/state/types'
+import {
+    LOCATION,
+    LOADING,
+    SET_THEME,
+    UPDATE_WEATHER
+} from '../helpers/state/types'
 import { getWeather } from '../helpers/state/actions'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
+import StyledApp from './StyledApp'
 
 const App = () => {
     const [mounted, setMounted] = useState(false)
@@ -12,7 +19,6 @@ const App = () => {
     useEffect(() => {
         if (!mounted) {
             const handlePositionSuccess = position => {
-                console.log(position)
                 const { latitude, longitude } = position.coords
 
                 dispatch({
@@ -56,6 +62,14 @@ const App = () => {
                 )
             }
             getUserLocation()
+            const hours = getHours(new Date())
+            const theme = hours > 17 ? 'night' : 'day'
+            dispatch({
+                type: SET_THEME,
+                payload: { data: theme }
+            })
+
+            document.querySelector('body').classList.add(theme)
             setMounted(true)
         }
     }, [mounted, setMounted])
@@ -66,13 +80,13 @@ const App = () => {
     //     console.log('long: ', long)
     // }
 
-    const { loading } = state
+    const { loading, theme } = state
 
     return (
-        <div>
-            {loading ? <Loader /> : null}
+        <StyledApp>
+            {loading ? <Loader theme={theme} /> : null}
             <AutoComplete />
-        </div>
+        </StyledApp>
     )
 }
 

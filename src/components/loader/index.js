@@ -1,14 +1,21 @@
 import React from 'react'
-import { getHours } from 'date-fns'
+import PropTypes from 'prop-types'
 import Sun from './Sun'
 import Moon from './Moon'
 
-const Loader = () => {
-    const hours = getHours(new Date())
-    if (hours > 18) {
+const Loader = ({ theme }) => {
+    if (theme === 'night') {
         return <Moon />
     }
     return <Sun />
+}
+
+Loader.propTypes = {
+    theme: PropTypes.string
+}
+
+Loader.defaultProps = {
+    theme: 'day'
 }
 
 export default Loader

@@ -1,4 +1,4 @@
-import { LOCATION, LOADING, UPDATE_WEATHER } from './types'
+import { LOCATION, LOADING, UPDATE_WEATHER, SET_THEME } from './types'
 
 export const initialState = {
     location: {
@@ -6,7 +6,8 @@ export const initialState = {
         long: 0
     },
     weather: {},
-    loading: false
+    loading: false,
+    theme: 'day'
 }
 
 export const reducer = (state, action) => {
@@ -33,6 +34,11 @@ export const reducer = (state, action) => {
             return {
                 ...state,
                 weather: data
+            }
+        case SET_THEME:
+            return {
+                ...state,
+                theme: data
             }
         default:
             return { ...state }
