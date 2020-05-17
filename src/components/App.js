@@ -63,10 +63,13 @@ const App = () => {
             }
             getUserLocation()
             const hours = getHours(new Date())
+            const theme = hours > 17 ? 'night' : 'day'
             dispatch({
                 type: SET_THEME,
-                payload: { data: hours > 17 ? 'night' : 'day' }
+                payload: { data: theme }
             })
+
+            document.querySelector('body').classList.add(theme)
             setMounted(true)
         }
     }, [mounted, setMounted])
