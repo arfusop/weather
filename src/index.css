@@ -1,3 +1,4 @@
+@import url('./reset.css')
 html,
 body {
     height: 100%;
@@ -12,11 +13,7 @@ body {
         #f2c94c,
         #f2994a
     ); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(
-        to right,
-        #f2c94c,
-        #f2994a
-    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #f2c94c, #f2994a);
 }
 
 .night {
@@ -27,6 +24,18 @@ body {
         linear-gradient(145deg, #f4df26 15.9%, #ff1b9a 40%);
     background-repeat: no-repeat;
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffb76b+0,ffa73d+50,ff7f04+100 */
+
+    background: #4e54c8; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #8f94fb,
+        #4e54c8
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #8f94fb,
+        #4e54c8
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #root {
