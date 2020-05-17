@@ -1,4 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react'
+import { ThemeProvider } from 'emotion-theming'
 import { getHours } from 'date-fns'
 import { initialState, reducer } from '../helpers/state/reducer'
 import {
@@ -81,12 +82,14 @@ const App = () => {
     // }
 
     const { loading, theme } = state
-
+    const appTheme = {}
     return (
-        <StyledApp>
-            {loading ? <Loader theme={theme} /> : null}
-            <AutoComplete />
-        </StyledApp>
+        <ThemeProvider theme={appTheme}>
+            <StyledApp>
+                {loading ? <Loader theme={theme} /> : null}
+                <AutoComplete />
+            </StyledApp>
+        </ThemeProvider>
     )
 }
 
