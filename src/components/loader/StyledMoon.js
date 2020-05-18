@@ -1,16 +1,6 @@
 import styled from '@emotion/styled'
 
 const StyledMoon = styled.section`
-    /* reset */
-    *,
-    *::before,
-    *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-
-    /* keyframes */
     @keyframes eclipse {
         from {
             transform: translateX(0);
@@ -135,8 +125,8 @@ const StyledMoon = styled.section`
 
     /* media queries */
     @media screen and (max-width: 600px) {
-        width: 98%;
-        margin: 10px auto;
+        width: 35%;
+        margin: auto;
         transform: scale(0.9);
     }
 

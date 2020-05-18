@@ -5,11 +5,11 @@ export const StyledSearch = styled.section`
     grid-template-columns: 1fr 2rem;
     justify-content: center;
     align-items: center;
-    width: 2rem;
+    /* width: 2rem; */
     height: 2rem;
     font-size: 1rem;
     /* transition: width all 1s ease-out; */
-    transition: all 1s linear;
+    transition: width 1s;
 
     &:focus {
         width: 100%;
