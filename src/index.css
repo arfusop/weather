@@ -1,4 +1,4 @@
-@import url('./reset.css')
+@import url('./reset.css');
 html,
 body {
     height: 100%;
@@ -39,7 +39,7 @@ body {
 }
 
 #root {
-    height: auto;
-    width: auto;
+    height: calc(100% - 2rem);
+    width: calc(100% - 2rem);
     padding: 1rem;
 }

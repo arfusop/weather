@@ -1,20 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaSearch, FaMapPin } from 'react-icons/fa'
 import { StyledSearch, StyledSuggestions } from './style'
 
 export const Search = ({ ...rest }) => {
+    const [open, setOpen] = useState(false)
     return (
         <StyledSearch transitionLength="0.6s">
-            {/* <input id="react-google-places-autocomplete-input" {...rest} />
-            <label for="react-google-places-autocomplete-input">
-                <FaSearch className="searchIcon" />
-            </label>
-            <input type="submit" id="search-submit" /> */}
-
-            <input id="react-google-places-autocomplete-input" 
-            className="searchInput" {...rest} />
+            <input
+                style={{ width: open ? '100%' : 0 }}
+                id="react-google-places-autocomplete-input"
+                className="searchInput"
+                {...rest}
+            />
             <div className="searchIcon">
-                <FaSearch className="search" />
+                <FaSearch className="search" onClick={() => setOpen(!open)} />
             </div>
         </StyledSearch>
     )
