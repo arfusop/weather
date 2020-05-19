@@ -1,10 +1,7 @@
 import { LOCATION, LOADING, UPDATE_WEATHER, SET_THEME } from './types'
 
 export const initialState = {
-    location: {
-        lat: 0,
-        long: 0
-    },
+    location: {},
     weather: {},
     loading: false,
     theme: 'day'
