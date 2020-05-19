@@ -1,20 +1,13 @@
-import React, { useState } from 'react'
-import { FaSearch, FaMapPin } from 'react-icons/fa'
+import React from 'react'
+import { FaMapPin } from 'react-icons/fa'
+import { AutoComplete, Input } from 'antd'
 import { StyledSearch, StyledSuggestions } from './style'
 
-export const Search = ({ ...rest }) => {
-    const [open, setOpen] = useState(false)
+export const SearchBar = ({ ...rest }) => {
+    const { Search } = Input
     return (
         <StyledSearch transitionLength="0.6s">
-            <input
-                style={{ width: open ? '100%' : 0 }}
-                id="react-google-places-autocomplete-input"
-                className="searchInput"
-                {...rest}
-            />
-            <div className="searchIcon">
-                <FaSearch className="search" onClick={() => setOpen(!open)} />
-            </div>
+            <Search {...rest} />
         </StyledSearch>
     )
 }
