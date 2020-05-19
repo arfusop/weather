@@ -6,7 +6,17 @@ export const StyledSuggestions = styled.section`
     .suggestion {
         height: 2rem;
         width: auto;
-        border-radius: 1%;
         background-color: white;
+        padding: 0 0.75rem;
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-left: 4px;
+        }
+
+        &:hover {
+            background-color: #d9d9d9;
+        }
     }
 `
