@@ -7,12 +7,12 @@ export const StyledSuggestions = styled.section`
         height: 2rem;
         width: auto;
         background-color: white;
-        padding: 0 0.75rem;
+        padding: 0 0.7rem;
         display: flex;
         align-items: center;
 
         span {
-            margin-left: 4px;
+            margin-left: 5px;
         }
 
         &:hover {

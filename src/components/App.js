@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { ThemeProvider } from 'emotion-theming'
 import { getHours } from 'date-fns'
+import Geocode from 'react-geocode'
 import { initialState, reducer } from '../helpers/state/reducer'
 import {
     LOCATION,
@@ -22,13 +23,32 @@ const App = () => {
             const handlePositionSuccess = position => {
                 const { latitude, longitude } = position.coords
 
-                dispatch({
-                    type: LOCATION,
-                    payload: {
-                        data: { lat: latitude, long: longitude },
-                        label: LOCATION
+                // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
+                Geocode.setApiKey('AIzaSyDAT0Ey55iQNnqlwIHppYgYNs6agx8tS8o')
+
+                // set response language. Defaults to english.
+                Geocode.setLanguage('en')
+
+                // Enable or disable logs. Its optional.
+                Geocode.enableDebug()
+
+                // Get address from latidude & longitude.
+                Geocode.fromLatLng(latitude, longitude).then(
+                    response => {
+                        const address = response.results[0].formatted_address
+                        dispatch({
+                            type: LOCATION,
+                            payload: {
+                                data: { payload: address.results[0] },
+                                label: LOCATION
+                            }
+                        })
+                    },
+                    error => {
+                        console.error(error)
                     }
-                })
+                )
+
                 const getWeatherData = async () => {
                     const weatherData = await getWeather(latitude, longitude)
 
