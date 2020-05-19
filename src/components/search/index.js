@@ -4,10 +4,8 @@ import { Input } from 'antd'
 import { StyledSearch, StyledSuggestions } from './style'
 
 export const SearchBar = ({ ...rest }) => {
-    // const { Search } = Input
     return (
         <StyledSearch transitionLength="0.6s">
-            {/* <Search {...rest} /> */}
             <Input {...rest} prefix={<FaSearch />} />
         </StyledSearch>
     )
