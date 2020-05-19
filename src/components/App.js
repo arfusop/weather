@@ -22,20 +22,12 @@ const App = () => {
         if (!mounted) {
             const handlePositionSuccess = position => {
                 const { latitude, longitude } = position.coords
-
-                // set Google Maps Geocoding API for purposes of quota management. Its optional but recommended.
-                Geocode.setApiKey('AIzaSyDAT0Ey55iQNnqlwIHppYgYNs6agx8tS8o')
-
-                // set response language. Defaults to english.
+                Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY)
                 Geocode.setLanguage('en')
-
-                // Enable or disable logs. Its optional.
                 Geocode.enableDebug()
-
-                // Get address from latidude & longitude.
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
-                        const address = response.results[0].formatted_address
+                        const address = response
                         dispatch({
                             type: LOCATION,
                             payload: {
@@ -46,6 +38,7 @@ const App = () => {
                     },
                     error => {
                         console.error(error)
+                        // handle the error with some sort of alert
                     }
                 )
 
