@@ -42,7 +42,6 @@ body {
 #root {
     height: 100%;
     width: 100%;
-    padding: 1rem;
 }
 
 .google-places-autocomplete__suggestions-container {
