@@ -6,7 +6,7 @@ import 'react-google-places-autocomplete/dist/index.min.css'
 const AutoComplete = () => {
     return (
         <GooglePlacesAutocomplete
-            apiKey={process.env.REACT_APP_GOOGLE_KEY}
+            // apiKey={process.env.REACT_APP_GOOGLE_KEY}
             onSelect={e => console.log(e)}
             placeholder="Location"
             renderInput={props => <SearchBar {...props} />}
