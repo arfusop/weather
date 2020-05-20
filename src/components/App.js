@@ -32,7 +32,7 @@ const App = () => {
                         dispatch({
                             type: LOCATION,
                             payload: {
-                                data: { payload: address.results[0] },
+                                data: { payload: address },
                                 label: LOCATION
                             }
                         })

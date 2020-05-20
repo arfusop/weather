@@ -16,7 +16,8 @@
     "react-google-places-autocomplete": "^2.0.5",
     "react-icons": "^3.10.0",
     "react-load-script": "^0.0.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "ua-parser-js": "^0.7.21"
   },
   "scripts": {
     "start": "react-scripts start",
