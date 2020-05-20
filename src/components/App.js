@@ -12,6 +12,7 @@ import {
 import { getWeather } from '../helpers/state/actions'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
+import Layout from './layout'
 import StyledApp from './StyledApp'
 
 const App = () => {
@@ -98,9 +99,10 @@ const App = () => {
     const appTheme = {}
     return (
         <ThemeProvider theme={appTheme}>
-            <StyledApp>
+            <StyledApp className="App">
                 {loading ? <Loader theme={theme} /> : null}
                 <AutoComplete />
+                <Layout />
             </StyledApp>
         </ThemeProvider>
     )
