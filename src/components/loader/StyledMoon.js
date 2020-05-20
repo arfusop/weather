@@ -37,6 +37,7 @@ const StyledMoon = styled.section`
     overflow: hidden;
     border-radius: 1%;
     box-shadow: 1px 1px 20px grey;
+    z-index: 2;
 
     .moon {
         position: relative;

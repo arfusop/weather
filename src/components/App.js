@@ -12,6 +12,7 @@ import {
 import { getWeather } from '../helpers/state/actions'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
+import Layout from './layout'
 import StyledApp from './StyledApp'
 
 const App = () => {
@@ -22,12 +23,12 @@ const App = () => {
         if (!mounted) {
             const handlePositionSuccess = position => {
                 const { latitude, longitude } = position.coords
-                Geocode.setApiKey('AIzaSyDAT0Ey55iQNnqlwIHppYgYNs6agx8tS8o')
+                Geocode.setApiKey(process.env.REACT_APP_GOOGLE_KEY)
                 Geocode.setLanguage('en')
                 Geocode.enableDebug()
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
-                        const address = response.results[0].formatted_address
+                        const address = response
                         dispatch({
                             type: LOCATION,
                             payload: {
@@ -38,6 +39,7 @@ const App = () => {
                     },
                     error => {
                         console.error(error)
+                        // handle the error with some sort of alert
                     }
                 )
 
@@ -97,9 +99,10 @@ const App = () => {
     const appTheme = {}
     return (
         <ThemeProvider theme={appTheme}>
-            <StyledApp>
+            <StyledApp className="App">
                 {loading ? <Loader theme={theme} /> : null}
                 <AutoComplete />
+                <Layout />
             </StyledApp>
         </ThemeProvider>
     )

@@ -5,7 +5,7 @@ import { StyledSearch, StyledSuggestions } from './style'
 
 export const SearchBar = ({ ...rest }) => {
     return (
-        <StyledSearch transitionLength="0.6s">
+        <StyledSearch className="Search">
             <Input {...rest} prefix={<FaSearch />} />
         </StyledSearch>
     )
@@ -13,7 +13,7 @@ export const SearchBar = ({ ...rest }) => {
 
 export const Suggestions = ({ active, suggestions, onSelectSuggestion }) => {
     return (
-        <StyledSuggestions>
+        <StyledSuggestions className="Suggestions">
             {suggestions.map((suggestion, index) => {
                 const { description } = suggestion
                 return (

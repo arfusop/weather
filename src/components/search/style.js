@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
 
-export const StyledSearch = styled.section``
+export const StyledSearch = styled.section`
+    padding: 1rem;
+`
 
 export const StyledSuggestions = styled.section`
     .suggestion {
