@@ -7,7 +7,8 @@ import AutoComplete from './autocomplete'
 import Loader from './loader'
 import Layout from './layout'
 import StyledApp from './StyledApp'
-import { getWeather, getUserAgent } from '../helpers'
+import { getUserAgent } from '../helpers'
+import { getWeather } from '../store/actions/app'
 import {
     UPDATE_WEATHER,
     SET_LOADING,
@@ -46,12 +47,13 @@ const App = () => {
                     }
                 )
 
-                const getWeatherData = async () => {
-                    const weatherData = await getWeather(latitude, longitude)
-                    dispatch({ type: UPDATE_WEATHER, payload: weatherData })
-                    dispatch({ type: SET_LOADING, payload: false })
-                }
-                getWeatherData()
+                // const getWeatherData = async () => {
+                //     const weatherData = await getWeather(latitude, longitude)
+                //     dispatch({ type: UPDATE_WEATHER, payload: weatherData })
+                //     dispatch({ type: SET_LOADING, payload: false })
+                // }
+                // getWeatherData()
+                dispatch(getWeather(latitude, longitude))
             }
             const handlePositionError = () => {
                 dispatch({ type: SET_LOADING, payload: false })
