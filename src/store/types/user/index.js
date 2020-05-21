@@ -1,0 +1,1 @@
+export const SET_USER_AGENT = 'SET_USER_AGENT'
