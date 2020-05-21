@@ -2,14 +2,18 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import { devToolsEnhancer } from 'redux-devtools-extension'
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './store/reducers/rootReducer'
 import App from './components/App'
 import * as serviceWorker from './serviceWorker'
 import 'antd/dist/antd.css'
 
-const store = createStore(rootReducer, devToolsEnhancer())
+const store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk))
+)
 require('dotenv').config()
 
 ReactDOM.render(
