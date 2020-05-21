@@ -1,23 +1,26 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'emotion-theming'
+import { useSelector, useDispatch } from 'react-redux'
 import { getHours } from 'date-fns'
 import Geocode from 'react-geocode'
-import { initialState, reducer } from '../helpers/state/reducer'
-import {
-    LOCATION,
-    LOADING,
-    SET_THEME,
-    UPDATE_WEATHER
-} from '../helpers/state/types'
-import { getWeather } from '../helpers/state/actions'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
 import Layout from './layout'
 import StyledApp from './StyledApp'
+import { getWeather, getUserAgent } from '../helpers'
+import {
+    UPDATE_WEATHER,
+    SET_LOADING,
+    SET_THEME,
+    SET_LOCATION,
+    SET_ALERT
+} from '../store/types/app'
+import { SET_USER_AGENT } from '../store/types/user'
 
 const App = () => {
     const [mounted, setMounted] = useState(false)
-    const [state, dispatch] = useReducer(reducer, initialState)
+    const { loaderTheme, loading } = useSelector(state => state.app)
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (!mounted) {
@@ -29,48 +32,40 @@ const App = () => {
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
                         const address = response
-                        dispatch({
-                            type: LOCATION,
-                            payload: {
-                                data: { payload: address },
-                                label: LOCATION
-                            }
-                        })
+                        dispatch({ type: SET_LOCATION, payload: address })
                     },
                     error => {
                         console.error(error)
-                        // handle the error with some sort of alert
+                        dispatch({
+                            type: SET_ALERT,
+                            payload: {
+                                type: 'error',
+                                text: 'We were unable to get your location.'
+                            }
+                        })
                     }
                 )
 
                 const getWeatherData = async () => {
                     const weatherData = await getWeather(latitude, longitude)
-
-                    dispatch({
-                        type: LOADING,
-                        payload: { label: LOADING, data: false }
-                    })
-                    dispatch({
-                        type: UPDATE_WEATHER,
-                        payload: { data: weatherData }
-                    })
+                    dispatch({ type: UPDATE_WEATHER, payload: weatherData })
+                    dispatch({ type: SET_LOADING, payload: false })
                 }
                 getWeatherData()
             }
             const handlePositionError = () => {
+                dispatch({ type: SET_LOADING, payload: false })
                 dispatch({
-                    type: LOADING,
-                    payload: { label: LOADING, data: false }
+                    type: SET_ALERT,
+                    payload: {
+                        type: 'error',
+                        text: 'We were unable to get your location.'
+                    }
                 })
-                console.log('location couldnt be obtained')
-                // Dispatch an action that displays the alert letting the user know their location wasnt obtained and they need to manually search for their desired weather location
             }
 
             const getUserLocation = () => {
-                dispatch({
-                    type: LOADING,
-                    payload: { label: LOADING, data: true }
-                })
+                dispatch({ type: SET_LOADING, payload: true })
                 navigator.geolocation.getCurrentPosition(
                     handlePositionSuccess,
                     handlePositionError
@@ -79,15 +74,14 @@ const App = () => {
             getUserLocation()
             const hours = getHours(new Date())
             const theme = hours > 17 ? 'night' : 'day'
-            dispatch({
-                type: SET_THEME,
-                payload: { data: theme }
-            })
-
+            dispatch({ type: SET_THEME, payload: theme })
             document.querySelector('body').classList.add(theme)
+
+            const userAgent = getUserAgent()
+            dispatch({ type: SET_USER_AGENT, payload: userAgent })
             setMounted(true)
         }
-    }, [mounted, setMounted])
+    }, [dispatch, mounted, setMounted])
 
     // const updateGeolocation = (address, lat, long) => {
     //     console.log('address: ', address)
@@ -95,12 +89,11 @@ const App = () => {
     //     console.log('long: ', long)
     // }
 
-    const { loading, theme } = state
-    const appTheme = {}
+    const theme = {}
     return (
-        <ThemeProvider theme={appTheme}>
+        <ThemeProvider theme={theme}>
             <StyledApp className="App">
-                {loading ? <Loader theme={theme} /> : null}
+                {loading ? <Loader theme={loaderTheme} /> : null}
                 <AutoComplete />
                 <Layout />
             </StyledApp>

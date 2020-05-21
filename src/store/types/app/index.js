@@ -1,0 +1,5 @@
+export const UPDATE_WEATHER = 'UPDATE_WEATHER'
+export const SET_LOADING = 'SET_LOADING'
+export const SET_THEME = 'SET_THEME'
+export const SET_LOCATION = 'SET_LOCATION'
+export const SET_ALERT = 'SET_ALERT'

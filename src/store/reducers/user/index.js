@@ -1,3 +1,5 @@
+import { SET_USER_AGENT } from '../../types/user'
+
 const initState = {
     agent: {}
 }
@@ -5,7 +7,7 @@ const initState = {
 const userReducer = (state = initState, action) => {
     const { payload, type } = action
     switch (type) {
-        case 'UPDATE_USER_AGENT':
+        case SET_USER_AGENT:
             return {
                 ...state,
                 agent: payload
