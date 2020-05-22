@@ -7,16 +7,14 @@ import AutoComplete from './autocomplete'
 import Loader from './loader'
 import Layout from './layout'
 import StyledApp from './StyledApp'
-import { getUserAgent } from '../helpers'
 import { getWeather } from '../store/actions/app'
+import { getUserAgent } from '../store/actions/user'
 import {
-    UPDATE_WEATHER,
     SET_LOADING,
     SET_THEME,
     SET_LOCATION,
     SET_ALERT
 } from '../store/types/app'
-import { SET_USER_AGENT } from '../store/types/user'
 
 const App = () => {
     const [mounted, setMounted] = useState(false)
@@ -46,13 +44,6 @@ const App = () => {
                         })
                     }
                 )
-
-                // const getWeatherData = async () => {
-                //     const weatherData = await getWeather(latitude, longitude)
-                //     dispatch({ type: UPDATE_WEATHER, payload: weatherData })
-                //     dispatch({ type: SET_LOADING, payload: false })
-                // }
-                // getWeatherData()
                 dispatch(getWeather(latitude, longitude))
             }
             const handlePositionError = () => {
@@ -79,17 +70,10 @@ const App = () => {
             dispatch({ type: SET_THEME, payload: theme })
             document.querySelector('body').classList.add(theme)
 
-            const userAgent = getUserAgent()
-            dispatch({ type: SET_USER_AGENT, payload: userAgent })
+            dispatch(getUserAgent())
             setMounted(true)
         }
     }, [dispatch, mounted, setMounted])
-
-    // const updateGeolocation = (address, lat, long) => {
-    //     console.log('address: ', address)
-    //     console.log('lat: ', lat)
-    //     console.log('long: ', long)
-    // }
 
     const theme = {}
     return (

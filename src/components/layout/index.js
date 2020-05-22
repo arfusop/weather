@@ -1,15 +1,20 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { StyledLayout } from './style'
-import Location from './Location'
-import Weather from './Weather'
+import CurrentWeather from './views/CurrentWeather'
 
 const Layout = () => {
-    return (
-        <StyledLayout className="Layout">
-            <Location />
-            <Weather />
-        </StyledLayout>
-    )
+    const { weather } = useSelector(state => state.app)
+
+    if (Object.keys(weather).length > 0) {
+        return (
+            <StyledLayout className="Layout">
+                <CurrentWeather />
+            </StyledLayout>
+        )
+    }
+
+    return null
 }
 
 export default Layout
