@@ -1,22 +1,39 @@
-import { UAParser } from 'ua-parser-js'
-
-export const getUserAgent = () => {
-    const parsed = new UAParser()
-    const userAgent = parsed.getResult()
-    return userAgent
-}
-
-export const getWeather = async (lat, long) => {
-    const proxy = 'https://cors-anywhere.herokuapp.com/'
-    const api = `https://api.darksky.net/forecast/1bd704b5c1758006d72f10d0e9e86dc5/${lat},${long}`
-    const url = proxy + api
-
-    try {
-        let res = await fetch(url)
-        res = await res.text()
-        res = JSON.parse(res)
-        return res
-    } catch (error) {
-        console.log(error)
+export const getWeatherIcon = label => {
+    let icon
+    switch (label) {
+        case 'clear-day':
+            icon = 'wi-day-sunny'
+            break
+        case 'clear-night':
+            icon = 'wi-night-clear'
+            break
+        case 'rain':
+            icon = 'wi-rain'
+            break
+        case 'snow':
+            icon = 'wi-snow'
+            break
+        case 'sleet':
+            icon = 'wi-sleet'
+            break
+        case 'wind':
+            icon = 'wi-windy'
+            break
+        case 'fog':
+            icon = 'wi-fog'
+            break
+        case 'cloudy':
+            icon = 'wi-cloudy'
+            break
+        case 'partly-cloudy-day':
+            icon = 'wi-day-cloudy'
+            break
+        case 'partly-cloudy-night':
+            icon = 'wi-night-cloudy'
+            break
+        default:
+            icon = 'wi-na'
+            break
     }
+    return icon
 }

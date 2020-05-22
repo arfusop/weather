@@ -11,7 +11,6 @@ export const getWeather = (lat, long) => async dispatch => {
         res = JSON.parse(res)
         dispatch({ type: UPDATE_WEATHER, payload: res })
         dispatch({ type: SET_LOADING, payload: false })
-        return res
     } catch (error) {
         console.log(error)
     }
