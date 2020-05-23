@@ -30,9 +30,17 @@ const App = () => {
                 Geocode.enableDebug()
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
+                        const filtered = response.results[0].address_components.filter(
+                            component => {
+                                if (component.types[0] === 'locality') {
+                                    return component.short_name
+                                }
+                            }
+                        )
+                        const town = filtered[0].short_name
                         dispatch({
                             type: SET_LOCATION,
-                            payload: response.results[0]
+                            payload: { data: response.results[0], town }
                         })
                     },
                     error => {
@@ -84,6 +92,14 @@ const App = () => {
                 {loading ? <Loader theme={loaderTheme} /> : null}
                 <AutoComplete />
                 <Layout />
+                <footer>
+                    <a
+                        href="https://darksky.net/poweredby/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Powered by Dark Sky
+                    </a>
+                </footer>
             </StyledApp>
         </ThemeProvider>
     )
