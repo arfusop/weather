@@ -11,13 +11,14 @@ export const SearchBar = ({ ...rest }) => {
     )
 }
 
-export const Suggestions = ({ active, suggestions, onSelectSuggestion }) => {
+export const Suggestions = ({ suggestions, onSelectSuggestion }) => {
     return (
         <StyledSuggestions className="Suggestions">
             {suggestions.map((suggestion, index) => {
                 const { description } = suggestion
                 return (
                     <div
+                        key={index}
                         className="suggestion"
                         onClick={event =>
                             onSelectSuggestion(suggestion, event)

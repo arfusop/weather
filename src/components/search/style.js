@@ -8,9 +8,10 @@ export const StyledSuggestions = styled.section`
     position: absolute;
     width: 100%;
     padding: 0 1rem;
+    z-index: 2;
 
     .suggestion {
-        height: 2rem;
+        min-height: 2rem;
         width: auto;
         background-color: white;
         padding: 0 0.7rem;

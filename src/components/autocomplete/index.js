@@ -1,13 +1,25 @@
 import React from 'react'
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete'
+import GooglePlacesAutocomplete, {
+    geocodeByAddress
+} from 'react-google-places-autocomplete'
 import { SearchBar, Suggestions } from '../search'
 import 'react-google-places-autocomplete/dist/index.min.css'
 
 const AutoComplete = () => {
+    const handleSelection = async e => {
+        console.log(e)
+        try {
+            const res = await geocodeByAddress(e.description)
+            console.log(res)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <GooglePlacesAutocomplete
             apiKey={process.env.REACT_APP_GOOGLE_KEY}
-            onSelect={e => console.log(e)}
+            onSelect={handleSelection}
             placeholder="Location"
             renderInput={props => <SearchBar {...props} />}
             renderSuggestions={(active, suggestions, onSelectSuggestion) => (
