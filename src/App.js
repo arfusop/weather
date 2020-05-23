@@ -3,18 +3,18 @@ import { ThemeProvider } from 'emotion-theming'
 import { useSelector, useDispatch } from 'react-redux'
 import { getHours } from 'date-fns'
 import Geocode from 'react-geocode'
-import AutoComplete from './autocomplete'
-import Loader from './loader'
-import Layout from '../layout'
+import AutoComplete from './components/autocomplete'
+import Loader from './components/loader'
+import Layout from './layout'
 import StyledApp from './StyledApp'
-import { getWeather } from '../store/actions/app'
-import { getUserAgent } from '../store/actions/user'
+import { getWeather } from './store/actions/app'
+import { getUserAgent } from './store/actions/user'
 import {
     SET_LOADING,
-    SET_THEME,
+    SET_LOADER_THEME,
     SET_LOCATION,
     SET_ALERT
-} from '../store/types/app'
+} from './store/types/app'
 
 const App = () => {
     const [mounted, setMounted] = useState(false)
@@ -76,10 +76,9 @@ const App = () => {
             }
             getUserLocation()
             const hours = getHours(new Date())
-            const theme = hours > 17 ? 'night' : 'day'
-            dispatch({ type: SET_THEME, payload: theme })
+            const theme = hours < 20 && hours > 4 ? 'sun' : 'moon'
+            dispatch({ type: SET_LOADER_THEME, payload: theme })
             document.querySelector('body').classList.add(theme)
-
             dispatch(getUserAgent())
             setMounted(true)
         }

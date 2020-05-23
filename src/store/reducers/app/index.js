@@ -1,7 +1,7 @@
 import {
     UPDATE_WEATHER,
     SET_LOADING,
-    SET_THEME,
+    SET_LOADER_THEME,
     SET_LOCATION,
     SET_ALERT
 } from '../../types/app'
@@ -26,7 +26,7 @@ const appReducer = (state = initState, action) => {
                 ...state,
                 loading: payload
             }
-        case SET_THEME:
+        case SET_LOADER_THEME:
             return {
                 ...state,
                 loaderTheme: payload

@@ -10,7 +10,7 @@ body {
     font-family: 'Space Mono', monospace;
 }
 
-.day {
+.sun {
     background: #f2994a; /* fallback for old browsers */
     background: -webkit-linear-gradient(
         to right,
@@ -20,7 +20,7 @@ body {
     background: linear-gradient(to right, #f2c94c, #f2994a);
 }
 
-.night {
+.moon {
     background-color: #2980b9;
     background: linear-gradient(215deg, #71b073 29.9%, #2776aa 80%),
         linear-gradient(304deg, rgba(255, 101, 53, 0.4) 24.9%, #aa2743 91%),
