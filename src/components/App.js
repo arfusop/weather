@@ -30,16 +30,9 @@ const App = () => {
                 Geocode.enableDebug()
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
-                        const { address_components } = response.results[0]
-                        const town = address_components.filter(component => {
-                            if (component.types[0] === 'locality') {
-                                return component
-                            }
-                        })
-
                         dispatch({
                             type: SET_LOCATION,
-                            payload: town[0].short_name
+                            payload: response.results[0]
                         })
                     },
                     error => {
