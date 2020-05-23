@@ -1,5 +1,5 @@
 export const UPDATE_WEATHER = 'UPDATE_WEATHER'
 export const SET_LOADING = 'SET_LOADING'
-export const SET_THEME = 'SET_THEME'
+export const SET_LOADER_THEME = 'SET_LOADER_THEME'
 export const SET_LOCATION = 'SET_LOCATION'
 export const SET_ALERT = 'SET_ALERT'
