@@ -1,6 +1,7 @@
 import { UPDATE_WEATHER, SET_LOADING } from '../../types/app'
 
 export const getWeather = (lat, long) => async dispatch => {
+    dispatch({ type: SET_LOADING, payload: true })
     const proxy = 'https://cors-anywhere.herokuapp.com/'
     const api = `https://api.darksky.net/forecast/1bd704b5c1758006d72f10d0e9e86dc5/${lat},${long}`
     const url = proxy + api
