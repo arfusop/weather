@@ -5,7 +5,7 @@ import { getHours } from 'date-fns'
 import Geocode from 'react-geocode'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
-import Layout from './layout'
+import Layout from '../layout'
 import StyledApp from './StyledApp'
 import { getWeather } from '../store/actions/app'
 import { getUserAgent } from '../store/actions/user'
@@ -30,8 +30,18 @@ const App = () => {
                 Geocode.enableDebug()
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
-                        const address = response
-                        dispatch({ type: SET_LOCATION, payload: address })
+                        const filtered = response.results[0].address_components.filter(
+                            component => {
+                                if (component.types[0] === 'locality') {
+                                    return component.short_name
+                                }
+                            }
+                        )
+                        const town = filtered[0].short_name
+                        dispatch({
+                            type: SET_LOCATION,
+                            payload: { data: response.results[0], town }
+                        })
                     },
                     error => {
                         console.error(error)
@@ -82,6 +92,14 @@ const App = () => {
                 {loading ? <Loader theme={loaderTheme} /> : null}
                 <AutoComplete />
                 <Layout />
+                <footer>
+                    <a
+                        href="https://darksky.net/poweredby/"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Powered by Dark Sky
+                    </a>
+                </footer>
             </StyledApp>
         </ThemeProvider>
     )
