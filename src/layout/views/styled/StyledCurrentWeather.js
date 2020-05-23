@@ -1,6 +1,11 @@
 import styled from '@emotion/styled'
 const StyledCurrentWeather = styled.section`
     color: black;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 1rem;
 
     .largeIcon {
         font-size: 3rem;

@@ -3,7 +3,7 @@ import { Card } from 'antd'
 
 const WeatherCard = ({ children }) => {
     return (
-        <Card bodyStyle={{ backgroundColor: 'lightgrey', height: '100%' }}>
+        <Card bodyStyle={{ backgroundColor: '#f8f8ff', height: '100%' }}>
             {children}
         </Card>
     )

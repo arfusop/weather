@@ -2,8 +2,8 @@ import styled from '@emotion/styled'
 
 const StyledApp = styled.section`
     height: 100%;
-    display: grid;
-    grid-template-rows: 3rem 1fr 1.5rem;
+    display: flex;
+    flex-direction: column;
 
     footer {
         display: flex;
