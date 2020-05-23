@@ -16,7 +16,7 @@ const AutoComplete = () => {
             const { geometry } = res[0]
             dispatch({ type: SET_LOCATION, payload: res[0] })
             dispatch(
-                getWeather(geometry.location.lat(), geometry.location.lat())
+                getWeather(geometry.location.lat(), geometry.location.lng())
             )
         } catch (error) {
             console.log(error)

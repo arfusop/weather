@@ -10,6 +10,7 @@ export const getWeather = (lat, long) => async dispatch => {
     const proxy = 'https://cors-anywhere.herokuapp.com/'
     const api = `https://api.darksky.net/forecast/1bd704b5c1758006d72f10d0e9e86dc5/${lat},${long}`
     const url = proxy + api
+    console.log('api: ', api)
 
     try {
         let res = await fetch(url)
