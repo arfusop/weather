@@ -5,13 +5,13 @@ export const StyledLayout = styled.section`
     padding: 1rem 1rem 0 1rem;
     grid-template-areas: 'a a';
     grid-gap: 10px;
-    height: 95%;
+    height: 90%;
 
     .mainWeatherDetails,
     .bonusWeatherDetails {
         display: grid;
         grid-gap: 1rem;
-        height: 93%;
+        height: 95%;
     }
 
     .mainWeatherDetails {
