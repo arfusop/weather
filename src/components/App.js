@@ -5,7 +5,7 @@ import { getHours } from 'date-fns'
 import Geocode from 'react-geocode'
 import AutoComplete from './autocomplete'
 import Loader from './loader'
-import Layout from './layout'
+import Layout from '../layout'
 import StyledApp from './StyledApp'
 import { getWeather } from '../store/actions/app'
 import { getUserAgent } from '../store/actions/user'
@@ -30,8 +30,17 @@ const App = () => {
                 Geocode.enableDebug()
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
-                        const address = response
-                        dispatch({ type: SET_LOCATION, payload: address })
+                        const { address_components } = response.results[0]
+                        const town = address_components.filter(component => {
+                            if (component.types[0] === 'locality') {
+                                return component
+                            }
+                        })
+
+                        dispatch({
+                            type: SET_LOCATION,
+                            payload: town[0].short_name
+                        })
                     },
                     error => {
                         console.error(error)

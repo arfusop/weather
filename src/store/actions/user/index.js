@@ -6,6 +6,5 @@ export const getUserAgent = () => dispatch => {
     const parsed = new UAParser()
     const userAgent = parsed.getResult()
 
-    dispatch({ type: SET_LOADING, payload: false })
     dispatch({ type: SET_USER_AGENT, payload: userAgent })
 }

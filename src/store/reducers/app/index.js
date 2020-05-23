@@ -6,7 +6,7 @@ import {
     SET_ALERT
 } from '../../types/app'
 const initState = {
-    location: {},
+    location: '',
     weather: {},
     loading: false,
     loaderTheme: 'sun',
