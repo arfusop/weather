@@ -53,13 +53,9 @@ const CurrentWeather = () => {
                 <div className="date">{date}</div>
                 <div className="location">{location.town}</div>
                 <div className="currentSummary">
-                    {/* <i className={`wi ${getWeatherIcon(currently.icon)}`} />{' '} */}
-                    {currently.summary}
+                    Today - {currently.summary}
                 </div>
-                <div className="hourlySummary">
-                    {/* <i className={`wi ${getWeatherIcon(hourly.icon)}`} />{' '} */}
-                    {hourly.summary}
-                </div>
+                <div className="hourlySummary">{hourly.summary}</div>
             </StyledCurrentWeather>
         </WeatherCard>
     )

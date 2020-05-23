@@ -8,9 +8,8 @@ export const getDateTime = unix => {
 export const getWeather = (lat, long) => async dispatch => {
     dispatch({ type: SET_LOADING, payload: true })
     const proxy = 'https://cors-anywhere.herokuapp.com/'
-    const api = `https://api.darksky.net/forecast/1bd704b5c1758006d72f10d0e9e86dc5/${lat},${long}`
+    const api = `https://api.darksky.net/forecast/${process.env.REACT_APP_SECRET}/${lat},${long}`
     const url = proxy + api
-    console.log('api: ', api)
 
     try {
         let res = await fetch(url)
