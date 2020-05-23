@@ -17,9 +17,8 @@ export const getWeather = (lat, long) => async dispatch => {
         res = JSON.parse(res)
         const sunrise = getDateTime(res.daily.data[0].sunriseTime)
         const sunset = getDateTime(res.daily.data[0].sunsetTime)
-
-        console.log('sunrise: ', sunrise)
-        console.log('sunset: ', sunset)
+        res.sunrise = sunrise
+        res.sunset = sunset
         dispatch({ type: UPDATE_WEATHER, payload: res })
         dispatch({ type: SET_LOADING, payload: false })
     } catch (error) {
