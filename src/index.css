@@ -21,22 +21,9 @@ body {
 }
 
 .moon {
-    /* background-color: #2980b9;
-    background: linear-gradient(215deg, #71b073 29.9%, #2776aa 80%),
-        linear-gradient(304deg, rgba(255, 101, 53, 0.4) 24.9%, #aa2743 91%),
-        linear-gradient(10deg, #b1c9d8 19.9%, #2776aa 50%),
-        linear-gradient(145deg, #f4df26 15.9%, #ff1b9a 40%);
-    background-repeat: no-repeat; */
-    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffb76b+0,ffa73d+50,ff7f04+100 */
-
-    background: #4e54c8; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #8f94fb,
-        #4e54c8
-    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: #4e54c8;
+    background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);
     background: linear-gradient(to top right, #2980b9, #0000a0, #00007c);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 #root {
@@ -51,4 +38,13 @@ body {
     padding: 0 0.75rem;
     border-radius: 0 0 2px 2px !important;
     border-color: #d9d9d9;
+}
+
+@media (max-width: 675px) {
+    html,
+    body,
+    #root {
+        height: auto !important;
+        min-height: 100vh;
+    }
 }
