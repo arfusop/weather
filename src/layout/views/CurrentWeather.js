@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { format, getDay } from 'date-fns'
+import { format } from 'date-fns'
 import WeatherCard from '../../components/card'
 import WeatherSpan from '../../components/weatherSpan'
-import { getWeatherIcon, getDayOfWeek } from '../../helpers'
+import { getWeatherIcon } from '../../helpers'
 import StyledCurrentWeather from './styled/StyledCurrentWeather'
 
 const CurrentWeather = () => {
@@ -12,8 +12,7 @@ const CurrentWeather = () => {
         weather: { currently, daily, hourly }
     } = useSelector(state => state.app)
     const currentDay = daily.data[0]
-    const dayOfWeek = getDay(new Date())
-    const date = `${getDayOfWeek(dayOfWeek)}, ${format(new Date(), 'MMM d')}`
+    const date = format(new Date(), 'E, MMM d')
 
     return (
         <WeatherCard>
@@ -52,9 +51,6 @@ const CurrentWeather = () => {
                 </div>
                 <div className="date">{date}</div>
                 <div className="location">{location.town}</div>
-                <div className="currentSummary">
-                    Today - {currently.summary}
-                </div>
                 <div className="hourlySummary">{hourly.summary}</div>
             </StyledCurrentWeather>
         </WeatherCard>

@@ -21,4 +21,10 @@ export const StyledLayout = styled.section`
     .bonusWeatherDetails {
         grid-template-rows: repeat(4, 1fr);
     }
+
+    @media (max-width: 675px) {
+        grid-template-areas: 'a';
+        padding: 1rem;
+        height: 100%;
+    }
 `
