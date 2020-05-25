@@ -6,6 +6,7 @@ export const StyledLayout = styled.section`
     grid-template-areas: 'a a';
     grid-gap: 10px;
     height: 90%;
+    overflow: auto;
 
     .mainWeatherDetails,
     .bonusWeatherDetails {

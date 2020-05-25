@@ -4,7 +4,7 @@ import Sun from './Sun'
 import Moon from './Moon'
 
 const Loader = ({ theme }) => {
-    if (theme === 'night') {
+    if (theme === 'moon') {
         return <Moon />
     }
     return <Sun />
