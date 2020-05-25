@@ -18,7 +18,7 @@ export const StyledHourly = styled.section`
             align-items: center;
             width: 4rem;
             margin-bottom: 1rem;
-            padding: 0.7rem;
+            padding: 0.7rem 0;
         }
     }
 `
