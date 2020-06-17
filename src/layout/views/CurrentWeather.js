@@ -13,7 +13,7 @@ const CurrentWeather = () => {
     } = useSelector(state => state.app)
     const currentDay = daily.data[0]
     const date = format(new Date(), 'E, MMM d')
-
+    
     return (
         <WeatherCard>
             <StyledCurrentWeather>
@@ -50,7 +50,9 @@ const CurrentWeather = () => {
                     />
                 </div>
                 <div className="date">{date}</div>
-                <div className="location">{location.town}</div>
+                <div className="location">
+                    {location?.formatted_address || null}
+                </div>
                 <div className="hourlySummary">{hourly.summary}</div>
             </StyledCurrentWeather>
         </WeatherCard>

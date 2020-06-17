@@ -17,7 +17,8 @@ export const StyledSuggestions = styled.section`
         padding: 0 0.7rem;
         display: flex;
         align-items: center;
-
+        cursor: pointer;
+        
         span {
             margin-left: 5px;
         }

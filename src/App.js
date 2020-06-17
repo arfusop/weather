@@ -30,11 +30,9 @@ const App = () => {
                 Geocode.enableDebug()
                 Geocode.fromLatLng(latitude, longitude).then(
                     response => {
-                        const town =
-                            response.results[1].address_components.short_name
                         dispatch({
                             type: SET_LOCATION,
-                            payload: { data: response.results[0], town }
+                            payload: response.results[0]
                         })
                     },
                     error => {

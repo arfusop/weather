@@ -1,9 +1,12 @@
 import React from 'react'
 import { Card } from 'antd'
 
-const WeatherCard = ({ children }) => {
+const WeatherCard = ({ children, id }) => {
     return (
-        <Card bodyStyle={{ backgroundColor: '#f8f8ff', height: '100%' }}>
+        <Card
+            className="WeatherCard"
+            id={id}
+            bodyStyle={{ backgroundColor: '#f8f8ff', height: '100%' }}>
             {children}
         </Card>
     )
