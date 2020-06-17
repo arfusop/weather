@@ -16,11 +16,11 @@ export const StyledLayout = styled.section`
     }
 
     .mainWeatherDetails {
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: 1fr .75fr .75fr;
     }
 
     .bonusWeatherDetails {
-        grid-template-rows: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
     }
 
     @media (max-width: 675px) {

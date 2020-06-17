@@ -5,8 +5,7 @@ import CurrentWeather from './views/CurrentWeather'
 import CurrentDetails from './views/CurrentDetails'
 import Hourly from './views/Hourly'
 import Daily from './views/Daily'
-import MoonCycle from './views/MoonCycle'
-import SunCycle from './views/SunCycle'
+import CelestialCycles from './views/CelestialCycles'
 import Precipitation from './views/Precipitation'
 
 const Layout = () => {
@@ -23,8 +22,7 @@ const Layout = () => {
                 <div className="bonusWeatherDetails">
                     <CurrentDetails />
                     <Precipitation />
-                    <SunCycle />
-                    <MoonCycle />
+                    <CelestialCycles />
                 </div>
             </StyledLayout>
         )
