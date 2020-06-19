@@ -16,7 +16,7 @@ export const StyledLayout = styled.section`
     }
 
     .mainWeatherDetails {
-        grid-template-rows: 1fr .75fr .75fr;
+        grid-template-rows: 0.75fr 0.75fr 1fr;
     }
 
     .bonusWeatherDetails {

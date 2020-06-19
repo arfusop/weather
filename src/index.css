@@ -11,12 +11,8 @@ body {
 }
 
 .sun {
-    background: #f2994a; /* fallback for old browsers */
-    background: -webkit-linear-gradient(
-        to right,
-        #f2c94c,
-        #f2994a
-    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: #f2994a;
+    background: -webkit-linear-gradient(to right, #f2c94c, #f2994a);
     background: linear-gradient(to top right, #f2c94c, #f2994a, #d1001c);
 }
 
@@ -47,4 +43,8 @@ body {
         height: auto !important;
         min-height: 100vh;
     }
+}
+
+.WeatherCard {
+    height: 100%;
 }
