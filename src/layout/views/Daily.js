@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
 import WeatherCard from '../../components/card'
 import WeatherSpan from '../../components/weatherSpan'
-import { getWeatherIcon } from '../../helpers'
+import { getWeatherIcon, determineTempIndicatorClass } from '../../helpers'
 import { StyledDaily } from './styled/StyledDaily'
 
 const Daily = () => {
@@ -25,6 +25,9 @@ const Daily = () => {
                         } = day
 
                         const displayPrecip = precipProbability > 0.09
+                        const tempIndicatorClass = determineTempIndicatorClass(
+                            temperatureMax
+                        )
 
                         return (
                             <div className="dailyItem" key={index}>
@@ -32,14 +35,16 @@ const Daily = () => {
                                     key={`dailyHighTemp ${index}`}
                                     temp={temperatureMax}
                                 />
-                                <div className="indicator" />
+                                <div
+                                    className={`tempIndicator ${tempIndicatorClass}`}
+                                />
                                 <WeatherSpan
                                     key={`dailyLowTemp ${index}`}
                                     temp={temperatureMin}
                                 />
                                 <div className="precipIndicator">
                                     {displayPrecip ? (
-                                        <span>{precipProbability}%</span>
+                                        <span>{precipProbability * 100}%</span>
                                     ) : null}
                                 </div>
                                 <i className={`wi ${getWeatherIcon(icon)}`} />

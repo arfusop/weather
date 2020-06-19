@@ -37,3 +37,15 @@ export const getWeatherIcon = label => {
     }
     return icon
 }
+
+export const determineTempIndicatorClass = temp => {
+    let tempClass
+
+    if (temp > 70) {
+        tempClass = 'warmColors'
+    } else {
+        tempClass = 'coolColors'
+    }
+
+    return tempClass
+}

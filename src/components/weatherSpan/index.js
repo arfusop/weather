@@ -13,7 +13,7 @@ const StyledSpan = styled.span`
     .degrees {
         height: ${props => (props.size === 'large' ? '10px' : '7px')};
         width: ${props => (props.size === 'large' ? '10px' : '7px')};
-        border: 2px solid black;
+        border: 1px solid black;
         border-radius: 50%;
         position: relative;
         bottom: ${props => (props.size === 'large' ? '0.6rem' : '0.1rem')};
