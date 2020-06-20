@@ -48,3 +48,9 @@ body {
 .WeatherCard {
     height: 100%;
 }
+
+@media (max-width: 475px) {
+    .ant-drawer-content-wrapper {
+        width: 100% !important;
+    }
+}

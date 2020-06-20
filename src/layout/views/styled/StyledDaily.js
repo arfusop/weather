@@ -9,6 +9,10 @@ export const StyledDaily = styled.section`
         justify-content: space-between;
         align-items: center;
         font-size: 1rem;
+
+        .expand {
+            cursor: pointer;
+        }
     }
 
     .dailyItemsContainer {
@@ -66,6 +70,61 @@ export const StyledDaily = styled.section`
 
             .dayOfWeek {
                 font-size: 1.1rem;
+            }
+        }
+    }
+`
+
+export const StyledDailyDrawer = styled.section`
+    display: grid;
+    grid-gap: 1rem;
+
+    .detailedDailyItem {
+        display: grid;
+        grid-gap: 0.75rem;
+
+        .top,
+        .mid {
+            display: grid;
+            grid-template-columns: 3rem 1fr;
+            grid-gap: 1rem;
+        }
+
+        .top {
+            .dailyDetailedIcon {
+                border: 1px solid transparent;
+                border-radius: 50%;
+                background-color: gray;
+                height: 2.5rem;
+                width: 2.5rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                margin: auto;
+
+                i {
+                    font-size: 1.1.rem;
+                }
+            }
+
+            .detailedInfo {
+                display: grid;
+                grid-template-rows: 1.2rem 1.2rem;
+
+                .date,
+                .temps {
+                    display: flex;
+                    align-items: center;
+                    line-height: 1.1;
+                }
+            }
+        }
+
+        .mid {
+            .precip {
+                color: #2292d4;
+                text-align: center;
             }
         }
     }
