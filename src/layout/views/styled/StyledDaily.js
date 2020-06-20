@@ -4,6 +4,13 @@ export const StyledDaily = styled.section`
     width: 100%;
     height: 100%;
 
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+    }
+
     .dailyItemsContainer {
         display: flex;
         justify-content: space-between;
