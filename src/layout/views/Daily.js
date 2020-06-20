@@ -6,7 +6,7 @@ import { FaAngleRight } from 'react-icons/fa'
 import WeatherCard from '../../components/card'
 import WeatherSpan from '../../components/weatherSpan'
 import { getWeatherIcon, determineTempIndicatorClass } from '../../helpers'
-import { StyledDaily } from './styled/StyledDaily'
+import { StyledDaily, StyledDailyDrawer } from './styled/StyledDaily'
 
 const Daily = () => {
     const { daily } = useSelector(state => state.app.weather)
@@ -17,7 +17,7 @@ const Daily = () => {
             <WeatherCard className="StyledDailyWeather">
                 <div className="title">
                     <span>Next 7 days</span>
-                    <span>
+                    <span className="expand">
                         <FaAngleRight onClick={() => setDrawerOpen(true)} />
                     </span>
                 </div>
@@ -74,9 +74,9 @@ const Daily = () => {
                     onClose={() => setDrawerOpen(false)}
                     closable={true}
                     title="A detailed daily look"
-                    width="75%"
+                    width="65%"
                     visible={drawerOpen}>
-                    <div className="detailedDailyContainer">
+                    <StyledDailyDrawer className="detailedDailyContainer">
                         {daily.data.map((day, index) => {
                             const {
                                 temperatureMax,
@@ -85,6 +85,11 @@ const Daily = () => {
                                 time,
                                 summary,
                                 precipProbability
+                                // dewPoint,
+                                // humidity,
+                                // windGust,
+                                // uvIndex,
+                                // visibility
                             } = day
 
                             const displayPrecip = precipProbability > 0.09
@@ -95,17 +100,12 @@ const Daily = () => {
                             return (
                                 <div className="detailedDailyItem">
                                     <div className="top">
-                                        <div className="icons">
-                                            <span className="dailyDetailedIcon">
-                                                <i
-                                                    className={`wi ${getWeatherIcon(
-                                                        icon
-                                                    )} dailyIcon`}
-                                                />
-                                            </span>
-                                            {displayPrecip ? (
-                                                <span>{precipValue}%</span>
-                                            ) : null}
+                                        <div className="dailyDetailedIcon">
+                                            <i
+                                                className={`wi ${getWeatherIcon(
+                                                    icon
+                                                )} dailyIcon`}
+                                            />
                                         </div>
                                         <div className="detailedInfo">
                                             <span className="date">
@@ -125,11 +125,26 @@ const Daily = () => {
                                             </span>
                                         </div>
                                     </div>
-                                    <div className="bot">{summary}</div>
+                                    <div className="mid">
+                                        {displayPrecip ? (
+                                            <div className="precip">
+                                                {precipValue}%
+                                            </div>
+                                        ) : (
+                                            <div></div>
+                                        )}
+                                        <span className="summary">
+                                            {summary}
+                                        </span>
+                                    </div>
+                                    {/* <div className="bot">
+
+
+                                    </div> */}
                                 </div>
                             )
                         })}
-                    </div>
+                    </StyledDailyDrawer>
                 </Drawer>
             </WeatherCard>
         </StyledDaily>
