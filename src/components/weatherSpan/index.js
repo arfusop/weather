@@ -8,15 +8,15 @@ const StyledSpan = styled.span`
     align-items: center;
     justify-content: space-between;
     height: ${props => (props.size === 'large' ? '3rem' : '1rem')};
-    width: ${props => (props.size === 'large' ? '4.5rem' : '1.9rem')};
+    width: ${props => (props.size === 'large' ? '3.9rem' : '1.5rem')};
 
     .degrees {
-        height: ${props => (props.size === 'large' ? '10px' : '7px')};
-        width: ${props => (props.size === 'large' ? '10px' : '7px')};
+        height: ${props => (props.size === 'large' ? '7px' : '5px')};
+        width: ${props => (props.size === 'large' ? '7px' : '5px')};
         border: 1px solid black;
         border-radius: 50%;
         position: relative;
-        bottom: ${props => (props.size === 'large' ? '0.6rem' : '0.1rem')};
+        bottom: ${props => (props.size === 'large' ? '1rem' : '0.35rem')};
     }
 `
 

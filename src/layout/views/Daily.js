@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
+import { FaAngleRight } from 'react-icons/fa'
 import WeatherCard from '../../components/card'
 import WeatherSpan from '../../components/weatherSpan'
 import { getWeatherIcon, determineTempIndicatorClass } from '../../helpers'
@@ -12,9 +13,17 @@ const Daily = () => {
     return (
         <StyledDaily className="DailyCard">
             <WeatherCard className="StyledDailyWeather">
-                <span className="title">Next 7 days</span>
+                <div className="title">
+                    <span>Next 7 days</span>
+                    <span>
+                        <FaAngleRight />
+                    </span>
+                </div>
                 <div className="dailyItemsContainer">
                     {daily.data.map((day, index) => {
+                        if (index === daily.data.length - 1) {
+                            return null
+                        }
                         const {
                             temperatureMax,
                             temperatureMin,
@@ -24,6 +33,7 @@ const Daily = () => {
                         } = day
 
                         const displayPrecip = precipProbability > 0.09
+                        const precipValue = Math.floor(precipProbability * 100)
                         const tempIndicatorClass = determineTempIndicatorClass(
                             temperatureMax
                         )
@@ -43,10 +53,14 @@ const Daily = () => {
                                 />
                                 <div className="precipIndicator">
                                     {displayPrecip ? (
-                                        <span>{precipProbability * 100}%</span>
+                                        <span>{precipValue}%</span>
                                     ) : null}
                                 </div>
-                                <i className={`wi ${getWeatherIcon(icon)}`} />
+                                <i
+                                    className={`wi ${getWeatherIcon(
+                                        icon
+                                    )} dailyIcon`}
+                                />
                                 <span className="dayOfWeek">
                                     {format(new Date(time * 1000), 'EEE')}
                                 </span>

@@ -4,12 +4,19 @@ export const StyledDaily = styled.section`
     width: 100%;
     height: 100%;
 
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 1rem;
+    }
+
     .dailyItemsContainer {
         display: flex;
         justify-content: space-between;
         align-items: center;
         height: 100%;
-        padding: 1rem 0;
+        padding: 1rem;
 
         .dailyItem {
             height: 100%;
@@ -24,18 +31,20 @@ export const StyledDaily = styled.section`
             }
 
             .tempIndicator {
-                width: 1rem;
+                width: 0.65rem;
                 height: 5rem;
                 text-align: center;
+                border-radius: 8px;
             }
 
             .warmColors {
                 background: #f2994a;
                 background: -webkit-linear-gradient(to right, #f2c94c, #f2994a);
                 background: linear-gradient(
-                    to top right,
-                    #f2c94c,
+                    to top,
+                    orange,
                     #f2994a,
+                    tomato,
                     #d1001c
                 );
             }
@@ -49,6 +58,14 @@ export const StyledDaily = styled.section`
                     #0000a0,
                     #00007c
                 );
+            }
+
+            .dailyIcon {
+                font-size: 1.8rem;
+            }
+
+            .dayOfWeek {
+                font-size: 1.1rem;
             }
         }
     }
