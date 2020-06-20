@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
+import { Drawer } from 'antd'
 import { FaAngleRight } from 'react-icons/fa'
 import WeatherCard from '../../components/card'
 import WeatherSpan from '../../components/weatherSpan'
@@ -9,6 +10,7 @@ import { StyledDaily } from './styled/StyledDaily'
 
 const Daily = () => {
     const { daily } = useSelector(state => state.app.weather)
+    const [drawerOpen, setDrawerOpen] = useState(false)
 
     return (
         <StyledDaily className="DailyCard">
@@ -16,7 +18,7 @@ const Daily = () => {
                 <div className="title">
                     <span>Next 7 days</span>
                     <span>
-                        <FaAngleRight />
+                        <FaAngleRight onClick={() => setDrawerOpen(true)} />
                     </span>
                 </div>
                 <div className="dailyItemsContainer">
@@ -68,6 +70,67 @@ const Daily = () => {
                         )
                     })}
                 </div>
+                <Drawer
+                    onClose={() => setDrawerOpen(false)}
+                    closable={true}
+                    title="A detailed daily look"
+                    width="75%"
+                    visible={drawerOpen}>
+                    <div className="detailedDailyContainer">
+                        {daily.data.map((day, index) => {
+                            const {
+                                temperatureMax,
+                                temperatureMin,
+                                icon,
+                                time,
+                                summary,
+                                precipProbability
+                            } = day
+
+                            const displayPrecip = precipProbability > 0.09
+                            const precipValue = Math.floor(
+                                precipProbability * 100
+                            )
+
+                            return (
+                                <div className="detailedDailyItem">
+                                    <div className="top">
+                                        <div className="icons">
+                                            <span className="dailyDetailedIcon">
+                                                <i
+                                                    className={`wi ${getWeatherIcon(
+                                                        icon
+                                                    )} dailyIcon`}
+                                                />
+                                            </span>
+                                            {displayPrecip ? (
+                                                <span>{precipValue}%</span>
+                                            ) : null}
+                                        </div>
+                                        <div className="detailedInfo">
+                                            <span className="date">
+                                                {format(
+                                                    new Date(time * 1000),
+                                                    'EEEE, LLLL d'
+                                                ).toUpperCase()}
+                                            </span>
+                                            <span className="temps">
+                                                <WeatherSpan
+                                                    temp={temperatureMax}
+                                                />
+                                                /
+                                                <WeatherSpan
+                                                    temp={temperatureMin}
+                                                />
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="bot">{summary}</div>
+                                </div>
+                            )
+                        })}
+                    </div>
+                </Drawer>
             </WeatherCard>
         </StyledDaily>
     )
