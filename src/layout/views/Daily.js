@@ -19,7 +19,6 @@ const Daily = () => {
                             temperatureMax,
                             temperatureMin,
                             precipProbability,
-                            precipType,
                             time,
                             icon
                         } = day
