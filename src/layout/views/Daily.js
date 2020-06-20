@@ -15,6 +15,9 @@ const Daily = () => {
                 <span className="title">Next 7 days</span>
                 <div className="dailyItemsContainer">
                     {daily.data.map((day, index) => {
+                        if (index === daily.data.length - 1) {
+                            return null
+                        }
                         const {
                             temperatureMax,
                             temperatureMin,
@@ -24,6 +27,7 @@ const Daily = () => {
                         } = day
 
                         const displayPrecip = precipProbability > 0.09
+                        const precipValue = Math.floor(precipProbability * 100)
                         const tempIndicatorClass = determineTempIndicatorClass(
                             temperatureMax
                         )
@@ -43,10 +47,14 @@ const Daily = () => {
                                 />
                                 <div className="precipIndicator">
                                     {displayPrecip ? (
-                                        <span>{precipProbability * 100}%</span>
+                                        <span>{precipValue}%</span>
                                     ) : null}
                                 </div>
-                                <i className={`wi ${getWeatherIcon(icon)}`} />
+                                <i
+                                    className={`wi ${getWeatherIcon(
+                                        icon
+                                    )} dailyIcon`}
+                                />
                                 <span className="dayOfWeek">
                                     {format(new Date(time * 1000), 'EEE')}
                                 </span>
