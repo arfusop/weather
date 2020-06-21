@@ -3,7 +3,13 @@ import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
 import { Drawer } from 'antd'
 import { BsDropletHalf } from 'react-icons/bs'
-import { WiHumidity, WiCloudyGusts, WiDaySunny, WiCloudy } from 'react-icons/wi'
+import {
+    WiHumidity,
+    WiCloudyGusts,
+    WiDaySunny,
+    WiCloudy,
+    WiRain
+} from 'react-icons/wi'
 import { FaEye } from 'react-icons/fa'
 import { FaAngleRight } from 'react-icons/fa'
 import WeatherCard from '../../components/card'
@@ -85,7 +91,7 @@ const Daily = () => {
                     onClose={() => setDrawerOpen(false)}
                     closable={true}
                     title="A detailed daily look"
-                    width="65%"
+                    width="auto"
                     visible={drawerOpen}>
                     <StyledDailyDrawer className="detailedDailyContainer">
                         {daily.data.map((day, index) => {
@@ -165,16 +171,11 @@ const Daily = () => {
                                             <div
                                                 className="mid"
                                                 key={`mid ${index}`}>
-                                                {displayPrecip ? (
-                                                    <div
-                                                        className="precip"
-                                                        key={`precipDetail ${index}`}>
-                                                        {precipValue}%
-                                                    </div>
-                                                ) : (
-                                                    <div
-                                                        key={`placeholder ${index}`}></div>
-                                                )}
+                                                <div
+                                                    className="precip"
+                                                    key={`precipDetail ${index}`}>
+                                                    <WiRain /> {precipValue}%
+                                                </div>
                                                 <span
                                                     className="summary"
                                                     key={`summary ${index}`}>
