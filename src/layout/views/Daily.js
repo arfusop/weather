@@ -110,7 +110,6 @@ const Daily = () => {
                                 cloudCover
                             } = day
 
-                            const displayPrecip = precipProbability > 0.09
                             const precipValue = Math.floor(
                                 precipProbability * 100
                             )
