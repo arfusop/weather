@@ -73,6 +73,22 @@ export const StyledDaily = styled.section`
             }
         }
     }
+
+    @media (max-width: 650px) {
+        .dailyItemsContainer {
+            padding: 1rem 0;
+
+            .dailyItem {
+                .dailyIcon {
+                    font-size: 1.5rem;
+                }
+
+                .dayOfWeek {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 `
 
 export const StyledDailyDrawer = styled.section`
@@ -151,6 +167,12 @@ export const StyledDailyDrawer = styled.section`
             grid-gap: 1rem;
             grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .detailedDailyItem {
+            grid-template-columns: 1fr;
         }
     }
 `

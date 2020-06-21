@@ -27,5 +27,9 @@ export const StyledLayout = styled.section`
         grid-template-areas: 'a';
         padding: 1rem;
         height: 100%;
+
+        .mainWeatherDetails {
+            grid-template-rows: 1fr 0.8fr 1fr;
+        }
     }
 `
