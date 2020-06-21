@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import { useSelector } from 'react-redux'
-import { AreaChart, Area, XAxis, YAxis, Label, Tooltip } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts'
 import WeatherCard from '../../components/card'
 
 const Precipitation = () => {
