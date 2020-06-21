@@ -122,7 +122,7 @@ export const StyledDailyDrawer = styled.section`
                 .dailyDetailedIcon {
                     border: 1px solid transparent;
                     border-radius: 50%;
-                    background-color: gray;
+                    background-color: ${props => props.theme.blue};
                     height: 2.5rem;
                     width: 2.5rem;
                     display: flex;

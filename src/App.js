@@ -76,7 +76,10 @@ const App = () => {
         }
     }, [dispatch, mounted, setMounted])
 
-    const theme = {}
+    const theme = {
+        blue: '#305d88'
+    }
+
     return (
         <ThemeProvider theme={theme}>
             <StyledApp className="App">
