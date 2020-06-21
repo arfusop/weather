@@ -16,7 +16,10 @@ export const StyledLayout = styled.section`
     }
 
     .mainWeatherDetails {
-        grid-template-rows: 0.75fr 0.75fr 1fr;
+        grid-template-rows: minmax(auto, 15rem) minmax(auto, 14rem) minmax(
+                auto,
+                20rem
+            );
     }
 
     .bonusWeatherDetails {
