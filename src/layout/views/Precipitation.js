@@ -31,15 +31,15 @@ const Precipitation = () => {
     return (
         <WeatherCard>
             <span className="title">Chance of Precipitation</span>
-            <AreaChart width={300} height={300} data={precipData}>
+            <AreaChart width={500} height={200} data={precipData}>
                 <XAxis dataKey="time" />
                 <YAxis tickFormatter={tick => `${tick}%`} />
                 <Tooltip />
                 <Area
                     type="monotone"
                     dataKey="precipProbability"
-                    stroke="#8884d8"
-                    fill="#8884d8"
+                    stroke="#305d88"
+                    fill="#305d88"
                 />
             </AreaChart>
         </WeatherCard>
