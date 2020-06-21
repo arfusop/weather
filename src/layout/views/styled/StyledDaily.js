@@ -73,14 +73,36 @@ export const StyledDaily = styled.section`
             }
         }
     }
+
+    @media (max-width: 650px) {
+        .dailyItemsContainer {
+            padding: 1rem 0;
+
+            .dailyItem {
+                .dailyIcon {
+                    font-size: 1.5rem;
+                }
+
+                .dayOfWeek {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 `
 
 export const StyledDailyDrawer = styled.section`
     display: grid;
     grid-gap: 1rem;
 
+    hr {
+        width: 100%;
+        border: 1px solid #f0f0f0;
+    }
+
     .detailedDailyItem {
         display: grid;
+        grid-template-columns: 0.7fr 1fr;
         grid-gap: 0.75rem;
 
         .top,
@@ -90,42 +112,67 @@ export const StyledDailyDrawer = styled.section`
             grid-gap: 1rem;
         }
 
-        .top {
-            .dailyDetailedIcon {
-                border: 1px solid transparent;
-                border-radius: 50%;
-                background-color: gray;
-                height: 2.5rem;
-                width: 2.5rem;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                color: white;
-                margin: auto;
+        .left {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 1rem;
 
-                i {
-                    font-size: 1.1.rem;
+            .top {
+                .dailyDetailedIcon {
+                    border: 1px solid transparent;
+                    border-radius: 50%;
+                    background-color: gray;
+                    height: 2.5rem;
+                    width: 2.5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    margin: 0 auto;
+
+                    i {
+                        font-size: 1.1.rem;
+                    }
+                }
+
+                .detailedInfo {
+                    display: grid;
+                    grid-template-rows: 1.2rem 1.2rem;
+                    grid-gap: 10px;
+
+                    .date,
+                    .temps {
+                        display: flex;
+                        align-items: center;
+                        line-height: 1.1;
+                        font-size: 1.1rem;
+                        font-weight: bold;
+                    }
                 }
             }
 
-            .detailedInfo {
-                display: grid;
-                grid-template-rows: 1.2rem 1.2rem;
+            .mid {
+                font-size: 1rem;
 
-                .date,
-                .temps {
-                    display: flex;
-                    align-items: center;
-                    line-height: 1.1;
+                .precip {
+                    color: #2292d4;
+                    text-align: center;
                 }
             }
         }
 
-        .mid {
-            .precip {
-                color: #2292d4;
-                text-align: center;
-            }
+        .right {
+            display: grid;
+            grid-gap: 1rem;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr 1fr;
+        }
+    }
+
+    @media (max-width: 650px) {
+        .detailedDailyItem {
+            grid-template-columns: 1fr;
         }
     }
 `
