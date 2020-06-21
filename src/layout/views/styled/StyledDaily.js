@@ -132,7 +132,7 @@ export const StyledDailyDrawer = styled.section`
                     margin: 0 auto;
 
                     i {
-                        font-size: 1.1.rem;
+                        font-size: 1.1rem;
                     }
                 }
 
@@ -158,6 +158,11 @@ export const StyledDailyDrawer = styled.section`
                 .precip {
                     color: #2292d4;
                     text-align: center;
+                    display: flex;
+
+                    svg {
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }

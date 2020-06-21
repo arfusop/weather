@@ -49,8 +49,6 @@ body {
     height: 100%;
 }
 
-@media (max-width: 475px) {
-    .ant-drawer-content-wrapper {
-        width: 100% !important;
-    }
+.ScrollbarsCustom-Thumb {
+    background-color: #305d88 !important;
 }
