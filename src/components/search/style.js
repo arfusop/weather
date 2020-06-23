@@ -11,6 +11,7 @@ export const StyledSuggestions = styled.section`
     z-index: 2;
 
     .suggestion {
+        color: ${props => props.theme.blue};
         min-height: 2rem;
         width: auto;
         background-color: white;
@@ -18,13 +19,14 @@ export const StyledSuggestions = styled.section`
         display: flex;
         align-items: center;
         cursor: pointer;
-        
+
         span {
             margin-left: 5px;
         }
 
         &:hover {
-            background-color: #d9d9d9;
+            background-color: ${props => props.theme.blue};
+            color: white;
         }
     }
 `

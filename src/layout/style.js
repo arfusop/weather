@@ -16,9 +16,9 @@ export const StyledLayout = styled.section`
     }
 
     .mainWeatherDetails {
-        grid-template-rows: minmax(auto, 15rem) minmax(auto, 14rem) minmax(
+        grid-template-rows: minmax(auto, 15rem) minmax(auto, 24rem) minmax(
                 auto,
-                20rem
+                14rem
             );
     }
 
@@ -32,7 +32,8 @@ export const StyledLayout = styled.section`
         height: 100%;
 
         .mainWeatherDetails {
-            grid-template-rows: 1fr 0.8fr 1fr;
+            height: 99%;
+            grid-template-rows: 0.6fr 0.8fr 0.6fr;
         }
     }
 `

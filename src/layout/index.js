@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { StyledLayout } from './style'
+import RSC from 'react-scrollbars-custom'
 import CurrentWeather from './views/CurrentWeather'
 import CurrentDetails from './views/CurrentDetails'
 import Hourly from './views/Hourly'
@@ -13,18 +14,20 @@ const Layout = () => {
 
     if (Object.keys(weather).length > 0) {
         return (
+            // <RSC>
             <StyledLayout className="Layout">
                 <div className="mainWeatherDetails">
                     <CurrentWeather />
+                    <CurrentDetails />
                     <Hourly />
-                    <Daily />
                 </div>
                 <div className="bonusWeatherDetails">
-                    <CurrentDetails />
+                    <Daily />
                     <Precipitation />
                     <CelestialCycles />
                 </div>
             </StyledLayout>
+            // </RSC>
         )
     }
 
