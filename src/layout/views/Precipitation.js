@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import { useSelector } from 'react-redux'
-import { AreaChart, Area, XAxis, YAxis, Tooltip } from 'recharts'
+import {
+    AreaChart,
+    Area,
+    XAxis,
+    YAxis,
+    Tooltip,
+    ResponsiveContainer
+} from 'recharts'
 import WeatherCard from '../../components/card'
 
 const Precipitation = () => {
@@ -31,17 +38,19 @@ const Precipitation = () => {
     return (
         <WeatherCard>
             <span className="title">Chance of Precipitation</span>
-            <AreaChart width={500} height={200} data={precipData}>
-                <XAxis dataKey="time" />
-                <YAxis tickFormatter={tick => `${tick}%`} />
-                <Tooltip />
-                <Area
-                    type="monotone"
-                    dataKey="precipProbability"
-                    stroke="#305d88"
-                    fill="#305d88"
-                />
-            </AreaChart>
+            <ResponsiveContainer width="99%" height={200}>
+                <AreaChart width={500} height={200} data={precipData}>
+                    <XAxis dataKey="time" />
+                    <YAxis tickFormatter={tick => `${tick}%`} />
+                    <Tooltip />
+                    <Area
+                        type="monotone"
+                        dataKey="precipProbability"
+                        stroke="#305d88"
+                        fill="#305d88"
+                    />
+                </AreaChart>
+            </ResponsiveContainer>
         </WeatherCard>
     )
 }
