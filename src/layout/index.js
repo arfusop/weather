@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { StyledLayout } from './style'
-import RSC from 'react-scrollbars-custom'
+// import RSC from 'react-scrollbars-custom'
 import CurrentWeather from './views/CurrentWeather'
 import CurrentDetails from './views/CurrentDetails'
 import Hourly from './views/Hourly'
