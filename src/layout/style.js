@@ -3,9 +3,9 @@ import styled from '@emotion/styled'
 export const StyledLayout = styled.section`
     display: grid;
     padding: 1rem 1rem 0 1rem;
-    grid-template-areas: 'a a';
+    grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
-    height: 90%;
+    height: 100%;
     overflow: auto;
 
     .mainWeatherDetails,
@@ -27,7 +27,7 @@ export const StyledLayout = styled.section`
     }
 
     @media (max-width: 675px) {
-        grid-template-areas: 'a';
+        grid-template-columns: 1fr;
         padding: 1rem;
         height: 100%;
 
