@@ -1,3 +1,15 @@
+import React from 'react'
+import {
+    WiMoonAltFirstQuarter,
+    WiMoonAltFull,
+    WiMoonAltNew,
+    WiMoonAltThirdQuarter,
+    WiMoonAltWaningCrescent4,
+    WiMoonAltWaningGibbous4,
+    WiMoonAltWaxingCrescent4,
+    WiMoonAltWaxingGibbous1
+} from 'react-icons/wi'
+
 export const getWeatherIcon = label => {
     let icon
     switch (label) {
@@ -48,4 +60,39 @@ export const determineTempIndicatorClass = temp => {
     }
 
     return tempClass
+}
+
+export const getMoonPhaseIcon = phase => {
+    switch (true) {
+        case phase === 0:
+            return { icon: <WiMoonAltNew />, label: 'New Moon' }
+        case phase > 0 && phase < 0.25:
+            return {
+                icon: <WiMoonAltWaxingCrescent4 />,
+                label: 'Waxing Crescent'
+            }
+        case phase === 0.25:
+            return { icon: <WiMoonAltFirstQuarter />, label: 'First Quarter' }
+        case phase > 0.25 && phase < 0.5:
+            return {
+                icon: <WiMoonAltWaxingGibbous1 />,
+                label: 'Waxing Gibbous'
+            }
+        case phase === 0.5:
+            return { icon: <WiMoonAltFull />, label: 'Full Moon' }
+        case phase > 0.5 && phase < 0.75:
+            return {
+                icon: <WiMoonAltWaningGibbous4 />,
+                label: 'Waning Gibbous'
+            }
+        case phase === 0.75:
+            return { icon: <WiMoonAltThirdQuarter />, label: 'Third Quarter' }
+        case phase > 0.75:
+            return {
+                icon: <WiMoonAltWaningCrescent4 />,
+                label: 'Waning Crescent'
+            }
+        default:
+            return null
+    }
 }

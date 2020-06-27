@@ -1,10 +1,11 @@
 import React from 'react'
+import { getMoonPhaseIcon } from '../../helpers'
 
-const MoonDisplay = () => {
+const MoonDisplay = ({ phase }) => {
+    const { icon, label } = getMoonPhaseIcon(phase)
     return (
         <div>
-            Moon display goes here
-            <div>test</div>
+            Today {icon} {label}
         </div>
     )
 }
