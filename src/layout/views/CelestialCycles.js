@@ -16,9 +16,14 @@ const CelestialCycles = () => {
     return (
         <StyledCelestialCycles>
             <WeatherCard>
-                <div className="celestialContainer">
-                    <SunDisplay rise={sunrise} set={sunset} />
-                    <MoonDisplay phase={moonPhase} />
+                <div className="container">
+                    <div className="celestialContainer">
+                        <span className="title">Today</span>
+                        <div className="phases">
+                            <SunDisplay rise={sunrise} set={sunset} />
+                            <MoonDisplay phase={moonPhase} />
+                        </div>
+                    </div>
                     <WindDisplay gust={windGust} />
                 </div>
             </WeatherCard>
